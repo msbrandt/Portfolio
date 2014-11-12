@@ -15,6 +15,7 @@ Version: v1.0
 *  5.0 - Contacts
 *  6.0 - Footer
 *  7.0 - Media queries
+*  8.0 - Blank slides
 *  
 */
 
@@ -24,7 +25,8 @@ h1{
 	margin: 0;
 }
 .page-padding{
-	padding-top: 150px;
+	/*padding-top: 150px;*/
+	padding: 100px 0;
 }
 .page-wrapper{
 	min-height: 725px;
@@ -62,21 +64,7 @@ h1{
 	color: #ccc;
 	border-radius: 10px;	
 }
-.blank{
-	width: 100%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;	
-	position: relative;
-	z-index: 2;
-	margin: -125px 0;
-	height: 800px;
-	background-color: #333;
-	/*bottom: -1313px;*/
-}
-#blank-2{
-	background-image: url('img/powderBLK.jpg');
-}
+
 
 #myTheme-home{
 	background-image: url('img/nav_backgroundBLK');
@@ -162,8 +150,10 @@ h1{
 	bottom: 50px;
 }
 #hero-content > ul > li{
-	width: 33.3%;
-	float: left;
+	/*width: 33.3%;*/
+	/*float: left;*/
+	display: inline;
+	padding: 0 10px;
 	text-align: center;
 	list-style: none;
 	font-size: 46px;
@@ -182,7 +172,9 @@ h1{
 	bottom: 10px; right: 0; left: 0;
 	margin: auto;
 	z-index: 2;
-	top: unset;
+	/*top: unset;*/
+	top: auto;
+	color: #fff;
 }
 .extra-padding{
 	padding: 0px 20px;
@@ -220,7 +212,7 @@ header{
 	/*height: 50px;*/
 	background: #222;
 	width: 100%;
-	height: 70px;
+	height: 50px;
 
 }
 #primary.myTheme_nav > ul{
@@ -230,7 +222,7 @@ header{
 #primary.myTheme_nav > ul > li{
 	list-style: none;
 	display: inline-block;
-	padding: 25px 10px;
+	padding: 15px 10px;
 
 }
 
@@ -286,6 +278,50 @@ header{
 }
 #myTheme-resume .top-section h3:first-of-type{
 	margin-top: 15px;
+}
+
+/********  5.0 - Contact**********************************************************/
+
+/********  6.0 - Footer **********************************************************/
+footer{
+	height: 50px;
+	width: 100%;
+	background: #0f0;
+}
+/********  8.0 - Blank slides******************************************************/
+
+.blank{
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;	
+	position: relative;
+	/*z-index: 2;*/
+	/*margin: -125px 0;*/
+	height: 1000px;
+	background-color: #333;
+	/*bottom: -1313px;*/
+}
+.blank-container{
+	height: 500px;
+	width: 100%;
+	background-color: #0f0;
+	z-index: 9;
+	position: relative;
+	overflow: hidden;
+	/*position: relative;*/
+}
+#blank-2{
+	background-image: url('img/powderBLK.jpg');
+	transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#blank-4{
+	background-image: url('img/woodsBLK.jpg');
+	transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#blank-6{
+	background-image: url('img/contactBLK.jpg');
+	transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
 /*********************Project showcase plugin*************************************/

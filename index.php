@@ -12,7 +12,7 @@
 <?php 
        $myTheme_pages = myTheme_get_pages();
        $s_count = 0;
-       // $b_count = $s_count + 3;
+       $b_count = 0;
 
 ?>
        <section id="myTheme-home"class="page-wrapper" data-magic="image" data-s_count="0">
@@ -32,8 +32,11 @@
        </section>
 <?php 
        myTheme_header();
+       $page_count = count($myTheme_pages);
+
        foreach ($myTheme_pages as $page) {
               $s_count++;
+              $b_count++;
 
               $page_title = strtolower($page->post_title);
 
@@ -49,9 +52,11 @@
                      </div>
               </div>
        </section>
-
-       <section class="blank" id="blank-<?php echo $s_count;?>" data-magic="image" data-s_count="<?php echo $s_count;?>"></section>
-       
+       <?php if($b_count < $page_count): ?>
+       <section class="blank-container" data-magic="image">
+              <div class="blank" id="blank-<?php echo $s_count;?>" data-s_count="<?php echo $s_count;?>"></div>
+       </section>
+       <?php endif; ?>
 
 <?php
        }
