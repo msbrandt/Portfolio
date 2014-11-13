@@ -21,8 +21,9 @@
 // 		endwhile;
 // 	endif;
 ?>
+<div class="download-version pull-right"><span class="glyphicon glyphicon-save"></span>Resume</div>
+
 <div clas="row">
-	<div class="download-version pull-right">Download Resume</div>
 	<div class='col-md-3'>
 		<div class="top-section">
 			<h1>Michael <br />Brandt</h1>

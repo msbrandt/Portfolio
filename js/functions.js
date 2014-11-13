@@ -37,14 +37,17 @@ jQuery(function($){
 
     }
   }
-  // console.log(imgAry);
   homeArrow.click(function(e){
     var ha = this.hash;
     pageScroll(e,ha);
+    $(navBtns[0]).addClass('active-nav');
+
   });
   navBtns.click(function(e){
     var ha = this.hash;
     pageScroll(e,ha);
+    navBtns.removeClass('active-nav');
+    $(this).addClass('active-nav');
 
   })
 
@@ -126,60 +129,54 @@ jQuery(function($){
       // console.log(projN);
 
       if( st > aboutN ){
-        
         var blankHeight = img_section_1.parent().height();
-        // console.log(blankHeight);
-        
-        // var offsetVal = (st - aboutB);
         var offsetValAbt = (st - aboutN);
-
         var b = (((offsetValAbt / blankHeight)*2)*75);
-        // console.log(b, bb);
-        // var newBackPos = (((offsetVal/blankHeight)*2)-1)*100;
-        // console.log(newBackPos);
-        // var newBackPos2 = newBackPos - 100;
-        // var newBackPos3 = newBackPos + newBackPos -200;
-        // var newBackPos4 = newBackPos + newBackPos -300;
 
-        // console.log(newBackPos, newBackPos2);
-        // var newBackPos = ((st - wh)/15)+30;
-
-        // var newSt = backPos - 100;
-        // var newSt2 = backPos2 - 120;
-
-
-        // img_section_1.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -newBackPos + ')');
         img_section_1.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
-        // img_section_3.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -newBackPos + ')');
-        
-        // content_proj.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -newBackPos2 + ')');
-        // content_resum.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -newBackPos2 + ')');
-        // content_contact.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -newBackPos2 + ')');
-        
-        // console.log(st - aboutB);
-        // console.log(newBackPos);
+
+        console.log('change nav');
       }
+
       if ( st > projB ){
         var offsetValPrj = (st - projB);
-
         var bb = ((offsetValPrj / blankHeight)*2)*75;
+
         img_section_2.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
+        // console.log('change nav 2');
 
-      //   var newBackPos = ((st - (wh*1.5))/10)-100;
-      //   // console.log('newBackPos');
-
-      //   img_section_2.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -newBackPos + ')');
 
       }
       if(st > resmB){
         var offsetValResm = (st - resmB);
-
         var transVal = ((offsetValResm / blankHeight)*2)*75;
 
         img_section_3.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
+      }
+      // console.log(content_about.offset().top, st);
+
+      if( st > 0 && st < (wh-200)){
+        navBtns.removeClass('active-nav');
+        $(navBtns[0]).addClass('active-nav');
 
       }
-      // console.log(st);
+      if( st < (aboutB + img_section_1.height())){
+        navBtns.removeClass('active-nav');
+        $(navBtns[0]).addClass('active-nav');        
+      }
+      if( st > (aboutB + img_section_1.height() - 100)){
+        navBtns.removeClass('active-nav');
+        $(navBtns[1]).addClass('active-nav');
+      }
+      if( st > (projB + img_section_1.height() - 100)){
+        navBtns.removeClass('active-nav');
+        $(navBtns[2]).addClass('active-nav');
+      }
+      if( st > (resmB + img_section_1.height() - 100)){
+        navBtns.removeClass('active-nav');
+        $(navBtns[3]).addClass('active-nav');
+      }
+
 
 
 

@@ -20,6 +20,9 @@ Version: v1.0
 */
 
 /*  0.0 - Classes */
+a:focus{
+	outline: none;
+}
 h1{
 	padding: 0;
 	margin: 0;
@@ -184,10 +187,16 @@ h1{
 	text-align: center;
 }
 /********  1.0 - Navbar / Header *************************************************/
+
+#primary.myTheme_nav > ul > li > a.active-nav{
+	color: #999;
+	text-decoration: underline;
+	transition: all .25s;
+}
 .my-nav{
 	z-index: 999;
 	/*height: 50px;*/
-	width: 300px;
+	width: 320px;
 	margin: 0 auto;
 }
 .my-nav-temp{
@@ -222,19 +231,50 @@ header{
 #primary.myTheme_nav > ul > li{
 	list-style: none;
 	display: inline-block;
-	padding: 15px 10px;
+	padding: 13px 10px;
 
 }
-
+#primary.myTheme_nav > ul > li > a{
+	font-size: 16px;
+	font-family: 'Ubuntu';
+	color: #ccc;
+}
+#primary.myTheme_nav > ul > li > a:hover{
+	color: #888;
+	text-decoration: none;
+}
 /********  2.0 - About ***********************************************************/
 /********  3.0 - Projects ********************************************************/
 /********  4.0 - Resume **********************************************************/
 .download-version{
-	height: 30px;
-	margin-bottom: 10px;
-	width: 100px;
-	background: #0f0;
+	/*height: 30px;*/
+	padding: 10px 5px;
+	margin-bottom: -25px;
+	width: 85px;
+	border: 1px solid #333;
+	border-radius: 5px;
 }
+.download-version > span{
+	margin-right: 5px;
+	color: #333;
+}
+
+
+.download-version:hover span{
+	color: #888;
+	cursor: pointer;
+	border-color: #888; 
+
+}
+
+.download-version:hover span,
+.download-version > span:hover,
+.download-version:hover{
+	cursor: pointer;
+	color: #888;
+	border-color: #888; 
+}
+
 #myTheme-resume{
 	min-height: 1000px;
 }
@@ -244,6 +284,9 @@ header{
 #myTheme-resume .content{
 	min-height: 960px;
 	padding: 30px;
+	background-color: #fff;
+	box-shadow: 5px 5px 5px #333, -5px 5px 5px #333;
+	color: #333;
 }
 #myTheme-resume .col-md-3{
 	padding: 0;
@@ -254,22 +297,23 @@ header{
 }
 #myTheme-resume .top-section{
 	height: 50%;
-	background: #bb00bb;
+	/*background: #bb00bb;*/
 }
 #myTheme-resume .bottom-section{
 	height: 50%;
-	background: #0ff;
+	/*background: #0ff;*/
 	position: relative;
 }
 #myTheme-resume .bottom-section .bottom-content{
 	position: absolute;
-	bottom: 0;
+	bottom: 35px;
 }
 #myTheme-resume .top-section h1{
-	color: #00f;
+	/*color: #00f;*/
 	font-weight: bold;
 	letter-spacing: 2px;
 	font-size: 50px;
+	margin-top: 35px;
 
 }
 #myTheme-resume .top-section h3{
@@ -278,6 +322,9 @@ header{
 }
 #myTheme-resume .top-section h3:first-of-type{
 	margin-top: 15px;
+}
+.heading{
+	font-family: 'Owswald';
 }
 
 /********  5.0 - Contact**********************************************************/
@@ -320,7 +367,7 @@ footer{
 	transform: matrix(1, 0, 0, 1, 0, 0);
 }
 #blank-6{
-	background-image: url('img/contactBLK.jpg');
+	background-image: url('img/contactBLK.png');
 	transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
