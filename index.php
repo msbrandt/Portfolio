@@ -19,7 +19,6 @@
        <!-- <article class="content-padding"> -->
               <div class="content" id="home-content">
                      <div id="hero-content">
-                            <!-- <h1><?php the_title(); ?></h1> -->
                             <h1>mike b</h1>
                             <ul>
                                    <li>Design</li>
@@ -37,8 +36,13 @@
        foreach ($myTheme_pages as $page) {
               $s_count++;
               $b_count++;
-
-              $page_title = strtolower($page->post_title);
+              // var_dump($page);
+              $t = get_the_category($page->ID);
+              foreach ($t as $cat) {
+                     $cat_name_raw = $cat->name;
+                     $cat_name = explode('y', $cat_name_raw);
+                     $page_title = strtolower($cat_name[1]);
+              }
 
 
 ?>

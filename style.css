@@ -6,7 +6,7 @@ Version: v1.0
 */
 /**
 * Table of contents
-*  0.0 - Classes
+*  0.0 - General
 *  1.0 - Navbar / Header
 *    1.1 - Hero
 *  2.0 - About
@@ -19,7 +19,7 @@ Version: v1.0
 *  
 */
 
-/*  0.0 - Classes */
+/*  0.0 - General */
 a:focus{
 	outline: none;
 }
@@ -52,69 +52,21 @@ h1{
 
 }
 .content{
-	padding-top: 100px;
+	padding-top: 20px;
 	width: 1020px;
 	background-color: #000;
 	min-height: 350px;
 	color: #ccc;
 	margin: 0 auto;
 }
-.content#home-content{
-	padding-top: 100px;
-	width: 660px;
-	background-color: rgba(0,0,0,0.65);
-	min-height: 350px;
-	color: #ccc;
-	border-radius: 10px;	
-}
 
 
+/********  1.0 - Navbar / Header *************************************************/
 #myTheme-home{
 	background-image: url('img/nav_backgroundBLK');
 	position: fixed;
 	z-index: 1;
 	background-position: center 0; 
-}
-#myTheme-about{
-	background-color: #888;
-	/*position: relative;*/
-	/*bottom: -1313px;*/
-	z-index: 3;
-}
-.other-sec{
-	position: relative;
-	z-index: 2;
-	bottom: -1313px;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-#blank-1{
-	background-image: url(img/bcg_slide-2.jpg);
-	/*height: 600px;*/
-}
-/*#blank-2{
-	background-image: url(img/bcg_slide-1.jpg);
-	/*height: 600px;*/
-}*/
-#blank-3{
-	background-image: url(img/bcg_slide-5.jpg);
-	/*height: 600px;*/
-}
-#projects{
-	background-color: #888;
-	
-}
-
-#myTheme-resume{
-	/*background-image: url(img/bcg_slide-4.jpg);*/
-	background-color: #888;
-
-	
-}
-#myTheme-contact{
-	/*background-image: url(img/bcg_slide-5.jpg);*/
-	background-color: #888;
-
 }
 #myTheme-home > .content{
 	position: absolute;
@@ -125,69 +77,18 @@ h1{
 	margin: auto;
 	height: 300px;
 }
-
-
-
-#hero-content{
-
-}
-#hero-content > h1{
-	width: 100%;
-	text-align: center;
-	color: #eee;
-	padding: 0;
-	margin: 0;
-	position: absolute;
-	top: 50px;
-	font-size: 125px;
-	font-family: 'Ubuntu';
-	text-transform: uppercase;
-	text-shadow: 5px 5px 3px #333;
-
-}
-#hero-content > ul{
-	width: 100%;
-	height: 46px;
-	color: #ddd;
-	position: absolute;
-	bottom: 50px;
-}
-#hero-content > ul > li{
-	/*width: 33.3%;*/
-	/*float: left;*/
-	display: inline;
-	padding: 0 10px;
-	text-align: center;
-	list-style: none;
-	font-size: 46px;
-	font-family: 'Ubuntu';
-	text-shadow: 5px 5px 3px #333;
-}
-.myTheme-more{
-	/*position: absolute;*/
-	/*bottom: 0;*/
-	font-size: 30px;
-	height: 40px;
-	width: 40px;
-	/*background: #0f0;*/
-	content: "";
-	position: absolute;
-	bottom: 10px; right: 0; left: 0;
-	margin: auto;
-	z-index: 2;
-	/*top: unset;*/
-	top: auto;
-	color: #fff;
-}
-.extra-padding{
-	padding: 0px 20px;
+.content#home-content{
+	padding-top: 100px;
+	width: 660px;
+	background-color: rgba(0,0,0,0.65);
+	min-height: 350px;
+	color: #ccc;
+	border-radius: 10px;	
 }
 .extra-padding > h1{
 	margin-bottom: 10px;
-	text-align: center;
+	text-align: left;
 }
-/********  1.0 - Navbar / Header *************************************************/
-
 #primary.myTheme_nav > ul > li > a.active-nav{
 	color: #999;
 	text-decoration: underline;
@@ -243,9 +144,88 @@ header{
 	color: #888;
 	text-decoration: none;
 }
+#hero-content > h1{
+	width: 100%;
+	text-align: center;
+	color: #eee;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 50px;
+	font-size: 125px;
+	font-family: 'Ubuntu';
+	text-transform: uppercase;
+	text-shadow: 5px 5px 3px #333;
+
+}
+#hero-content > ul{
+	width: 100%;
+	height: 46px;
+	color: #ddd;
+	position: absolute;
+	bottom: 50px;
+}
+#hero-content > ul > li{
+	/*width: 33.3%;*/
+	/*float: left;*/
+	display: inline;
+	padding: 0 10px;
+	text-align: center;
+	list-style: none;
+	font-size: 46px;
+	font-family: 'Ubuntu';
+	text-shadow: 5px 5px 3px #333;
+}
+.myTheme-more{
+	/*position: absolute;*/
+	/*bottom: 0;*/
+	font-size: 30px;
+	height: 40px;
+	width: 40px;
+	/*background: #0f0;*/
+	content: "";
+	position: absolute;
+	bottom: 10px; right: 0; left: 0;
+	margin: auto;
+	z-index: 2;
+	/*top: unset;*/
+	top: auto;
+	color: #fff;
+}
 /********  2.0 - About ***********************************************************/
+#myTheme-about{
+	background-color: #888;
+	/*position: relative;*/
+	/*bottom: -1313px;*/
+	z-index: 3;
+}
+#about-content{
+	position: relative;
+}
+#about-content > div{
+	position: absolute;
+}
+
+.my-image{
+	height: 200px;
+	width: 300px;
+	content: "";
+	/*float: right;*/
+	background-color: #bb00bb;
+	right: 20px;
+}
+.extra-padding{
+	padding: 0px 20px;
+	bottom: 0;
+}
+
 /********  3.0 - Projects ********************************************************/
+
 /********  4.0 - Resume **********************************************************/
+#myTheme-resume{
+	background-color: #888;	
+}
+
 .download-version{
 	/*height: 30px;*/
 	padding: 10px 5px;
@@ -328,6 +308,11 @@ header{
 }
 
 /********  5.0 - Contact**********************************************************/
+#myTheme-contact{
+	/*background-image: url(img/bcg_slide-5.jpg);*/
+	background-color: #888;
+
+}
 
 /********  6.0 - Footer **********************************************************/
 footer{
@@ -420,25 +405,7 @@ footer{
 	padding-left: 25px;
 
 }
-/*li.active-project:after{
-	width: 0;
-	height: 0;
-	content: "";
-	border-top: 20px solid transparent; 
-	border-bottom: 20px solid transparent; 
-	border-left: 30px solid #0f0; 
-	position: absolute;
-	top: 10px;
-	right: -30px;
 
-}*/
-
-.project-padding > a{
-
-}
-.project-padding > span.project-contrubute{
-
-}
 .project-info > p{
 	padding-top: 100px;
 }
@@ -491,19 +458,49 @@ footer{
 }
 
 .project-showcase > li{
-	height: 200px;
+	height: 400px;
 	width: 33.3%;
 	content: "";
-	background: #f00;
+	background: #00c8ff;
 	list-style: none;
 	position: relative;
 	display: inline-block;
 	font-size: 14px;
 	/*margin: 5px;*/
 }
+ .project-showcase > li > div:before { 
+ 	content: ""; 
+ 	position: absolute; 
+ 	top: -65px; 
+ 	left: 0; 
+ 	right: 0;
+ 	margin: auto;
+ 	width: 0; 
+ 	height: 0; 
+ 	border-left: 125px solid transparent; 
+ 	border-right: 125px solid transparent; 
+ 	border-bottom: 65px solid #00f; 
+ } 
+ .project-showcase > li > div:after { 
+ 	content: ""; 
+ 	position: absolute; 
+ 	bottom: -65px; 
+ 	left: 0;
+ 	right: 0;
+ 	margin: auto; 
+ 	width: 0; 
+ 	height: 0; 
+ 	border-left: 125px solid transparent; 
+ 	border-right: 125px solid transparent; 
+ 	border-top: 65px solid #00f; 
+ }
 .project-showcase > li > div{
-	height: 190px;
-	width: 98%;
+/*	height: 190px;
+	width: 98%;*/
+	height: 180px;
+	width: 75%;
+
+	/*height: 0; width: 0;*/
 	background-color: #00f;
 	content: "";
 	position: absolute;
@@ -511,6 +508,7 @@ footer{
 	right: 0; left: 0;
 	margin: auto;
 	cursor: pointer;
+	/*border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 200px solid red;*/
 }
 .project-decp-container{
 	width: 100%;

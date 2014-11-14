@@ -14,11 +14,9 @@ jQuery(function($){
 
   var sections = $('section'), c = sections.length;
   var imgAry = [], contentAry = [], locateAry = [];
-  // console.log(sections);
 
   for( var i = 0; i < c; i++){
     currentDiv = $(sections[i]);
-    // console.log(currentDiv);
     currentChildren = currentDiv.children();
     currentSec = $(currentDiv).data('magic');
     currentTop = $(currentDiv).offset().top;
@@ -26,11 +24,8 @@ jQuery(function($){
     locateAry.push(currentTop);
 
     if(  currentSec == 'image' ){
-      // console.log(currentDiv);
-      // if(currentChildren.hasClass('blank') ){
         imgAry.push(currentDiv);
 
-      // }
 
     }else if( currentSec == 'na' ){
       contentAry.push(currentDiv);
@@ -62,6 +57,8 @@ jQuery(function($){
        });    
   }
   function magicScroll(images, content, locations){
+    var browserType = navigator.userAgent.toLowerCase();
+    console.log(browserType);
     var st = $(window).scrollTop();
 
     var wh = $(window).height();
@@ -79,7 +76,6 @@ jQuery(function($){
         fadeSt = 50,
         fadeEnd = 1000;
 
-    // var backPos = st / 1.75;
     var backPos = st / 10;
 
 
@@ -88,12 +84,10 @@ jQuery(function($){
     var projPos = st / 2.75;
 
     var translateVal = st / 25;
-  	// var translateVal = st / 3;
 
   	var projScroll = st / 6;
 
     var homeSec = $(images[0]), aboutSec = $(contentAry[0]), hero = homeSec.children();
-    // console.log(hero);
     var img_section_home = $(images[0]),
         img_section_1 = $(images[1]).children('.blank'),
         img_section_2 = $(images[2]).children('.blank'),
@@ -108,52 +102,53 @@ jQuery(function($){
         projB = content_proj.offset().top-350,
         resmB = content_resum.offset().top-100;
 
-
-    // var backPos3 = 0;
-
-    // var x = $('#blank-1').scrollTop();
-        // console.log(aboutScroll);
-        // console.log('back: ' +backPos);
-        // console.log('scrollTop: '+st+' wh: '+wh);
-
       if(st<=fadeSt){
         op = 1;
       }else if(st<=fadeEnd){
         op = 1 - st / fadeEnd;
+      }
+      if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+        homeSec.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -backPos + ')');
+        hero.css({"-webkit-transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
       }
       homeSec.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -backPos + ')');
       hero.css({"transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
 
       var aboutN = aboutB + 200;
       var projN = projB + 100;
-      // console.log(projN);
 
       if( st > aboutN ){
         var blankHeight = img_section_1.parent().height();
         var offsetValAbt = (st - aboutN);
         var b = (((offsetValAbt / blankHeight)*2)*75);
+        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+          img_section_1.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
 
+        };
         img_section_1.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
 
-        console.log('change nav');
       }
 
       if ( st > projB ){
         var offsetValPrj = (st - projB);
         var bb = ((offsetValPrj / blankHeight)*2)*75;
+        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+          img_section_2.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
 
+        };
         img_section_2.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
-        // console.log('change nav 2');
 
 
       }
       if(st > resmB){
         var offsetValResm = (st - resmB);
         var transVal = ((offsetValResm / blankHeight)*2)*75;
+        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+          img_section_3.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
 
+        };
         img_section_3.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
       }
-      // console.log(content_about.offset().top, st);
 
       if( st > 0 && st < (wh-200)){
         navBtns.removeClass('active-nav');
