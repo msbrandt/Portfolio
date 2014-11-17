@@ -34,12 +34,14 @@ h1{
 .page-wrapper{
 	min-height: 725px;
 	width: 100%;
-	background-repeat: no-repeat;
-	background-size: cover;
+	/*background-repeat: no-repeat;*/
+	/*background-size: cover;*/
 	background-position: 0 0;
 	z-index: 3;
 	position: relative;
 	background-color: #41E6C2;
+	background-image: url('img/GPlay.svg');
+
 
 }
 .page-wrapper:not(#myTheme-about, #myTheme-projects){
@@ -220,7 +222,9 @@ header{
 }
 
 /********  3.0 - Projects ********************************************************/
-
+#myTheme-projects{
+	background-color: #888;
+}
 /********  4.0 - Resume **********************************************************/
 #myTheme-resume{
 	background-color: #888;	
@@ -311,9 +315,16 @@ header{
 #myTheme-contact{
 	/*background-image: url(img/bcg_slide-5.jpg);*/
 	background-color: #888;
+	/*position: fixed;*/
+	/*min-height: 500px;*/
 
 }
-
+#myTheme-contact{
+/*	position: fixed;
+	z-index: 999999;
+	content: " ";
+	bottom: 0;*/
+}
 /********  6.0 - Footer **********************************************************/
 footer{
 	height: 50px;
@@ -456,9 +467,30 @@ footer{
 .project-padding > hr{
 	clear: both;
 }
+.shadow-title{
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.75);
+	text-align: center;
+	line-height: 250px;
+	font-family: 'Ubuntu';
+	font-size: 30px;
+	cursor: pointer;
+	display: none;
 
+
+}
+
+.active-proj-nav > .shadow-title{
+	display: table;
+}
+.project-showcase > li:hover .shadow-title{
+	display: table;
+}
 .project-showcase > li{
-	height: 400px;
+	transition: all .25s;
+
+	height: 250px;
 	width: 33.3%;
 	content: "";
 	background: #00c8ff;
@@ -466,9 +498,13 @@ footer{
 	position: relative;
 	display: inline-block;
 	font-size: 14px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
 	/*margin: 5px;*/
 }
- .project-showcase > li > div:before { 
+/* .project-showcase > li > div:before { 
  	content: ""; 
  	position: absolute; 
  	top: -65px; 
@@ -480,6 +516,7 @@ footer{
  	border-left: 125px solid transparent; 
  	border-right: 125px solid transparent; 
  	border-bottom: 65px solid #00f; 
+ 	transition: .25s all;
  } 
  .project-showcase > li > div:after { 
  	content: ""; 
@@ -493,23 +530,16 @@ footer{
  	border-left: 125px solid transparent; 
  	border-right: 125px solid transparent; 
  	border-top: 65px solid #00f; 
+ 	transition: .25s all;
  }
-.project-showcase > li > div{
-/*	height: 190px;
-	width: 98%;*/
-	height: 180px;
-	width: 75%;
+ .project-showcase > li.active-proj-nav > div:before { 
+  	border-bottom: 65px solid #fff;
 
-	/*height: 0; width: 0;*/
-	background-color: #00f;
-	content: "";
-	position: absolute;
-	top: 0; bottom: 0;
-	right: 0; left: 0;
-	margin: auto;
-	cursor: pointer;
-	/*border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 200px solid red;*/
-}
+	}
+ .project-showcase > li.active-proj-nav > div:after{
+  	border-top: 65px solid #fff;
+  }*/
+
 .project-decp-container{
 	width: 100%;
 
@@ -541,13 +571,7 @@ footer{
 	transition: all 1s;
 
 }
-.project-showcase > .active-proj-nav > div{
-	background: #fff;
-	color: #f00;
-	font-weight: bold;
-	transition: all .25s;
 
-}
 .project-decp > ul{
 	padding: 0;
 }

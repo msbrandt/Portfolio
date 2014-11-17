@@ -22,8 +22,3 @@ $this_query = new WP_Query( $argsX );
 		endwhile;
 	endif;
 ?>
-
-<!-- <div class="extra-padding">
-	<h1><?php echo $this_page->post_title; ?></h1>
-	<p><?php echo $this_page->post_content; ?></p>
-</div> -->

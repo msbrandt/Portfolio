@@ -1,4 +1,5 @@
 jQuery(function($){
+		console.log('this_project');
 
 	var project_nav_boxs = $('.project-showcase > li'),
 			project_containers = $('.project-content'),
@@ -9,8 +10,8 @@ jQuery(function($){
 		var this_project = $(this),
 				this_pos = this_project.data('position'),
 				this_content = $(project_containers[this_pos]);
-
-
+		
+		console.log(this);
 		project_nav_boxs.removeClass('active-proj-nav');
 		this_project.addClass('active-proj-nav');
 

@@ -9,6 +9,7 @@
 <?php get_header(); ?> 
 
 <main>
+
 <?php 
        $myTheme_pages = myTheme_get_pages();
        $s_count = 0;

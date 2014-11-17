@@ -1,6 +1,7 @@
 jQuery(function($){
   var windowH = $(window).height(); 
   var homePg = $('#myTheme-home'), aboutPg = $('#myTheme-about'), proPg = $('#myTheme-projects'), header = $('header'), tempHeader = $('.my-nav-temp');
+  var projContentBox = $('.project-decp-container');
   var newh = windowH - 100;
   var homeArrow = $('main > a:first');
   var navBtns = $('#primary.myTheme_nav > ul > li > a');
@@ -56,13 +57,29 @@ jQuery(function($){
          
        });    
   }
+  //*******************************************************************************************
+  var browserType = navigator.userAgent.toLowerCase();
+
+  var wh = $(window).height();
+  var op = 0,
+      fadeSt = 50,
+      fadeEnd = 1000;
+    var homeSec = $(imgAry[0]), aboutSec = $(contentAry[0]), hero = homeSec.children();
+    var img_section_home = $(imgAry[0]),
+        img_section_1 = $(imgAry[1]).children('.blank'),
+        img_section_2 = $(imgAry[2]).children('.blank'),
+        img_section_3 = $(imgAry[3]).children('.blank');
+   
+    var content_about = $(contentAry[0]),
+        content_proj = $(contentAry[1]),
+        content_resum = $(contentAry[2]),
+        content_contact = $(contentAry[3]);
+  //*******************************************************************************************
   function magicScroll(images, content, locations){
-    var browserType = navigator.userAgent.toLowerCase();
-    console.log(browserType);
     var st = $(window).scrollTop();
 
-    var wh = $(window).height();
     var sb = st + wh;
+
     if(st > wh){
       header.addClass('fix-nav');
       tempHeader.show();
@@ -72,32 +89,10 @@ jQuery(function($){
       header.removeClass('fix-nav');
     }
 
-    var op = 0,
-        fadeSt = 50,
-        fadeEnd = 1000;
-
     var backPos = st / 10;
-
-
   	var backPos2 = st / 5;
   	
-    var projPos = st / 2.75;
 
-    var translateVal = st / 25;
-
-  	var projScroll = st / 6;
-
-    var homeSec = $(images[0]), aboutSec = $(contentAry[0]), hero = homeSec.children();
-    var img_section_home = $(images[0]),
-        img_section_1 = $(images[1]).children('.blank'),
-        img_section_2 = $(images[2]).children('.blank'),
-        img_section_3 = $(images[3]).children('.blank');
-   
-    var content_about = $(contentAry[0]),
-        content_proj = $(contentAry[1]),
-        content_resum = $(contentAry[2]),
-        content_contact = $(contentAry[3]);
-    
     var aboutB = content_about.height(),
         projB = content_proj.offset().top-350,
         resmB = content_resum.offset().top-100;
@@ -115,7 +110,13 @@ jQuery(function($){
       hero.css({"transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
 
       var aboutN = aboutB + 200;
-      var projN = projB + 100;
+      // if(projContentBox.hasClass('active-content')){
+        // var projN = projB + 600;
+
+      // }else{
+        var projN = projB + 200;
+
+      // }
 
       if( st > aboutN ){
         var blankHeight = img_section_1.parent().height();
@@ -129,9 +130,16 @@ jQuery(function($){
 
       }
 
-      if ( st > projB ){
+      if ( st > projN ){
         var offsetValPrj = (st - projB);
-        var bb = ((offsetValPrj / blankHeight)*2)*75;
+        // if(projContentBox.hasClass('active-content')){
+
+          // var bb = (((offsetValPrj / blankHeight)*2)*75)-180;
+        // }else{
+          var bb = (((offsetValPrj / blankHeight)*2)*75)-60;
+
+        // }
+
         if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
           img_section_2.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
 
