@@ -12,13 +12,22 @@ $argsX = array(
 		'post_type' => 'post',
 		'post_count' => 1
 	);
-
+?>
+<div class="row">
+<?php
 $this_query = new WP_Query( $argsX );
 	if ( have_posts() ) : 
 		while ( $this_query->have_posts() ) : 
 			$this_query->the_post();
+		?>
+		<div class="col-md-6">
+		<?php
 				the_title();
 				the_content();
+				?>
+		</div>
+		<?php
 		endwhile;
 	endif;
 ?>
+</div>

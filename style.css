@@ -39,7 +39,7 @@ h1{
 	background-position: 0 0;
 	z-index: 3;
 	position: relative;
-	background-color: #41E6C2;
+	background-color: #e4e2e2;
 	background-image: url('img/GPlay.svg');
 
 
@@ -67,8 +67,14 @@ h1{
 #myTheme-home{
 	background-image: url('img/nav_backgroundBLK');
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	background-position: center 0; 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#myTheme-home.change-z{
+	z-index: 1;
 }
 #myTheme-home > .content{
 	position: absolute;
@@ -111,9 +117,12 @@ h1{
 	height: 70px;
 	z-index: 2;
 }
+.admin-bar .fix-nav{
+	top: 30px;
+}
 .fix-nav{
 	position: fixed;
-	top: 30px;
+	top: 0;
 	width: 100%;
 	z-index: 10;
 }
@@ -196,25 +205,42 @@ header{
 }
 /********  2.0 - About ***********************************************************/
 #myTheme-about{
-	background-color: #888;
+	/*background-color: #888;*/
 	/*position: relative;*/
 	/*bottom: -1313px;*/
 	z-index: 3;
+}
+#myTheme-about .content{
+	min-height: 640px;
 }
 #about-content{
 	position: relative;
 }
 #about-content > div{
-	position: absolute;
+	position: relative;
+	height: 610px;
 }
 
+#about-content > div > .col-md-6{
+	position: absolute;
+}
+#about-content > div > .col-md-6:first-of-type{
+	/*right: 20px;*/
+}
+#about-content > div > .col-md-6:last-of-type{
+	bottom: 0;
+	left: 20px;
+}
 .my-image{
-	height: 200px;
-	width: 300px;
+	height: 600px;
+	width: 435px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 	content: "";
 	/*float: right;*/
-	background-color: #bb00bb;
-	right: 20px;
+	/*background-color: #bb00bb;*/
+	right: 40px;
 }
 .extra-padding{
 	padding: 0px 20px;
@@ -223,11 +249,11 @@ header{
 
 /********  3.0 - Projects ********************************************************/
 #myTheme-projects{
-	background-color: #888;
+	/*background-color: #888;*/
 }
 /********  4.0 - Resume **********************************************************/
 #myTheme-resume{
-	background-color: #888;	
+	/*background-color: #888;	*/
 }
 
 .download-version{
@@ -312,24 +338,103 @@ header{
 }
 
 /********  5.0 - Contact**********************************************************/
-#myTheme-contact{
-	/*background-image: url(img/bcg_slide-5.jpg);*/
-	background-color: #888;
-	/*position: fixed;*/
-	/*min-height: 500px;*/
+#myTheme-contact-hidden #contact-content{
+	position: absolute;
+	bottom: 125px;
+	left: 0;
+	right: 0;
+	margin: auto;
+
 
 }
-#myTheme-contact{
-/*	position: fixed;
-	z-index: 999999;
-	content: " ";
-	bottom: 0;*/
+#myTheme-contact-hidden{
+	position: fixed;
+	z-index: 1;
+	/*content: " ";*/
+	bottom: 0px !important;
+	height: 100%;
+}
+
+.wpcf7 button,
+.wpcf7 input,
+.wpcf7 textarea {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 4px;
+	display: block;
+	line-height: 18px;
+	margin: 0 0 18px;
+	padding: 8px 8px 7px;
+	width: 100%;
+}
+
+.wpcf7 button {
+	background: #2a2a2b;
+	border-color: #242425;
+	color: #ddd;
+}
+
+.wpcf7 button:active,
+.wpcf7 button:focus,
+.wpcf7 button:hover {
+	background-color: #272728;
+	border-color: #1f1f20;
+	color: #fff;
+	outline: none;
+}
+
+.wpcf7 input,
+.wpcf7 textarea {
+	background: #545759;
+	border-color: #616163;
+	color: #fff;
+}
+
+.wpcf7 textarea {
+	padding-bottom: 8px;
+	width: 100%;
+}
+
+.wpcf7 input:active,
+.wpcf7 input:focus,
+.wpcf7 input:hover,
+.wpcf7 textarea:active,
+.wpcf7 textarea:focus,
+.wpcf7 textarea:hover {
+	background: #5e6163;
+	border-color: #767679;
+	outline: none;
+}
+
+::-webkit-input-placeholder {
+	color: #ddd;
+	line-height: normal;
+}
+
+:-moz-placeholder {
+	color: #ddd;
+}
+
+::-moz-placeholder {
+	color: #ddd;
+}
+
+:-ms-input-placeholder {
+	color: #ddd;
 }
 /********  6.0 - Footer **********************************************************/
 footer{
 	height: 50px;
 	width: 100%;
 	background: #0f0;
+	bottom: -1244px;
+	z-index: 999;
+	position: relative;
+}
+.footer-shadow{
+	height: 725px;
+	bottom: -1284px;
+	position: relative;
 }
 /********  8.0 - Blank slides******************************************************/
 

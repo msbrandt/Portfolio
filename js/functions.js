@@ -54,6 +54,7 @@ jQuery(function($){
          scrollTop: theHash
        }, 750, function(){
          window.location.hash = theHash;
+         console.log(hash);
          
        });    
   }
@@ -82,17 +83,18 @@ jQuery(function($){
 
     if(st > wh){
       header.addClass('fix-nav');
+      $('#myTheme-home').addClass('change-z')
       tempHeader.show();
 
     }else{
       tempHeader.hide();
+      $('#myTheme-home').removeClass('change-z')
       header.removeClass('fix-nav');
     }
 
     var backPos = st / 10;
   	var backPos2 = st / 5;
   	
-
     var aboutB = content_about.height(),
         projB = content_proj.offset().top-350,
         resmB = content_resum.offset().top-100;
@@ -132,13 +134,7 @@ jQuery(function($){
 
       if ( st > projN ){
         var offsetValPrj = (st - projB);
-        // if(projContentBox.hasClass('active-content')){
-
-          // var bb = (((offsetValPrj / blankHeight)*2)*75)-180;
-        // }else{
-          var bb = (((offsetValPrj / blankHeight)*2)*75)-60;
-
-        // }
+        var bb = (((offsetValPrj / blankHeight)*2)*75)-60;
 
         if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
           img_section_2.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');

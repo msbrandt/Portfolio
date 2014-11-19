@@ -47,6 +47,9 @@
 
 
 ?>
+       <?php 
+              if($page_title !='contact'):
+                     ?>
        <section id="myTheme-<?php echo $page_title; ?>"class="page-wrapper" data-magic="na" data-s_count="<?php echo $s_count; ?>">
               <div class="page-padding">
                      <div class="content" id="<?php echo $page_title; ?>-content">
@@ -62,7 +65,28 @@
               <div class="blank" id="blank-<?php echo $s_count;?>" data-s_count="<?php echo $s_count;?>"></div>
        </section>
        <?php endif; ?>
-
+              <?php
+              else:
+                     ?>
+       <section id="myTheme-<?php echo $page_title; ?>" class="footer-shadow "></section>
+         <section id="myTheme-contact-hidden"class="page-wrapper" data-magic="na" data-s_count="<?php echo $s_count; ?>">
+              <div class="page-padding">
+                     <div class="content" id="<?php echo $page_title; ?>-content">
+                     <?php
+                            get_template_part( '/page-templates/content-'.$page_title, get_post_format() );
+                            $s_count++;
+                     ?>
+                     </div>
+              </div>
+       </section>
+       <?php if($b_count < $page_count): ?>
+       <section class="blank-container" data-magic="image">
+              <div class="blank" id="blank-<?php echo $s_count;?>" data-s_count="<?php echo $s_count;?>"></div>
+       </section>
+       <?php endif; ?>            
+              <?php
+              endif;
+              ?>
 <?php
        }
 
