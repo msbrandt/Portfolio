@@ -2,7 +2,7 @@
 <!-- start of footer section  -->
 
 <footer id="footer">
-	<h4><?php _e( 'Developed and designed by Mikey Brandt', 'myTheme-domain' ); ?></h4>
+	<h4><?php _e( 'Designed and developed by Me!', 'myTheme-domain' ); ?></h4>
 </footer>
 
 

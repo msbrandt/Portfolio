@@ -20,14 +20,15 @@ $this_query = new WP_Query( $argsX );
 		while ( $this_query->have_posts() ) : 
 			$this_query->the_post();
 		?>
-		<div class="col-md-6">
-		<?php
-				the_title();
-				the_content();
-				?>
+		<h1>Contact me for more infromation or freelance work!</h1>
+
+		<div class="col-md-12">
+		<!-- <h1><?php the_title(); ?></h1> -->
+			<?php the_content(); ?>
 		</div>
 		<?php
 		endwhile;
 	endif;
 ?>
+
 </div>

@@ -21,7 +21,7 @@
 // 		endwhile;
 // 	endif;
 ?>
-<div class="download-version pull-right"><span class="glyphicon glyphicon-save"></span>Resume</div>
+<div class="download-version pull-right"><a href="<?php echo get_template_directory_uri(); ?>/img/Michael_Brandt_resume.pdf" target="_blank"><span class="glyphicon glyphicon-save"></span>Resume</a></div>
 
 <div clas="row">
 	<div class='col-md-3'>

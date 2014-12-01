@@ -57,6 +57,9 @@ function myTheme_scripts() {
 	wp_enqueue_style( 'myTheme-proj-style', get_template_directory_uri() . '/css/proj_styles.css');
 	wp_enqueue_style( 'myTheme-style', get_stylesheet_uri());
 
+	wp_enqueue_style( 'myTheme-fonts', '//fonts.googleapis.com/css?family=Raleway|Open+Sans|Ubuntu' );
+
+
 	wp_enqueue_script( 'myTheme-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20131209', true );
 	wp_enqueue_script( 'myTheme-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20131209', true );
 }
@@ -114,20 +117,9 @@ function myTheme_get_post($theCatID){
 	
 }
 
-function load_background_images(){
-	$img1 = get_template_directory_uri() . '/img/bcg_slide-1.jpg';
-	$img2 = get_template_directory_uri() . '/img/bcg_slide-2.jpg';
-	$img3 = get_template_directory_uri() . '/img/bcg_slide-3.jpg';
-
-	$background_imgs = array($img1, $img2, $img3);
-
-	return $background_imgs;
-}
-
-
 function myTheme_header(){
 	?>
-       <a href="#myTheme-about"><span class="myTheme-more glyphicon glyphicon-chevron-down"></span></a>
+       <a id="scroll-down"href="#myTheme-about"><span class="myTheme-more glyphicon glyphicon-chevron-down"></span></a>
 
        <header>
               <nav class="navbar-inverse my-nav" role="navigation">
@@ -142,32 +134,4 @@ function myTheme_header(){
 
 	<?php
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

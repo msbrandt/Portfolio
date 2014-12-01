@@ -56,7 +56,8 @@ h1{
 .content{
 	padding-top: 20px;
 	width: 1020px;
-	background-color: #000;
+	background-color: rgba(0,0,0,.65);
+	/*background-color: #000;*/
 	min-height: 350px;
 	color: #ccc;
 	margin: 0 auto;
@@ -65,7 +66,7 @@ h1{
 
 /********  1.0 - Navbar / Header *************************************************/
 #myTheme-home{
-	background-image: url('img/nav_backgroundBLK');
+	background-image: url('img/nav_backgroundBLK.jpg');
 	position: fixed;
 	z-index: 2;
 	background-position: center 0; 
@@ -96,6 +97,12 @@ h1{
 .extra-padding > h1{
 	margin-bottom: 10px;
 	text-align: left;
+	font-family: 'Raleway';
+	text-transform: capitalize;
+
+}
+.extra-padding p{
+	font-family: 'Open Sans';
 }
 #primary.myTheme_nav > ul > li > a.active-nav{
 	color: #999;
@@ -203,6 +210,13 @@ header{
 	top: auto;
 	color: #fff;
 }
+#scroll-down span{
+	color: #fff;
+	transition: all .25s;
+}
+#scroll-down:hover span{
+	color: #888;
+}
 /********  2.0 - About ***********************************************************/
 #myTheme-about{
 	/*background-color: #888;*/
@@ -251,6 +265,14 @@ header{
 #myTheme-projects{
 	/*background-color: #888;*/
 }
+#myTheme-projects h1{
+	margin: 30px 0;
+	color: #333;
+	font-family: 'Raleway';
+}
+#projects-content.content{
+	/*background-color: unset;*/
+}
 /********  4.0 - Resume **********************************************************/
 #myTheme-resume{
 	/*background-color: #888;	*/
@@ -258,32 +280,32 @@ header{
 
 .download-version{
 	/*height: 30px;*/
-	padding: 10px 5px;
-	margin-bottom: -25px;
+	/*padding: 10px 5px;*/
+	padding: 0 5px;
+	height: 40px;
+	line-height: 40px;
+	/*margin-bottom: -25px;*/
 	width: 85px;
 	border: 1px solid #333;
 	border-radius: 5px;
+	cursor: pointer;
+	transition: all .25s;
 }
-.download-version > span{
+.download-version:hover,
+.download-version:hover a, 
+.download-version:hover span{
+	color: #888;
+	border-color: #888;
+}
+.download-version > a{
+	color: #333;
+	text-decoration: none;
+}
+.download-version > a > span{
 	margin-right: 5px;
 	color: #333;
 }
 
-
-.download-version:hover span{
-	color: #888;
-	cursor: pointer;
-	border-color: #888; 
-
-}
-
-.download-version:hover span,
-.download-version > span:hover,
-.download-version:hover{
-	cursor: pointer;
-	color: #888;
-	border-color: #888; 
-}
 
 #myTheme-resume{
 	min-height: 1000px;
@@ -295,8 +317,9 @@ header{
 	min-height: 960px;
 	padding: 30px;
 	background-color: #fff;
-	box-shadow: 5px 5px 5px #333, -5px 5px 5px #333;
+	/*box-shadow: 5px 5px 5px #333, -5px 5px 5px #333;*/
 	color: #333;
+	border: 1px solid #333;
 }
 #myTheme-resume .col-md-3{
 	padding: 0;
@@ -354,6 +377,12 @@ header{
 	bottom: 0px !important;
 	height: 100%;
 }
+#myTheme-contact-hidden h1{
+	width: 100%;
+	text-align: center;
+	font-family: 'Raleway';
+	margin: 20px 0;
+}
 
 .wpcf7 button,
 .wpcf7 input,
@@ -365,9 +394,15 @@ header{
 	line-height: 18px;
 	margin: 0 0 18px;
 	padding: 8px 8px 7px;
-	width: 100%;
+	width: 50%;
+	margin: 0 auto;
 }
-
+.wpcf7 p{
+	text-align: center;
+}
+.wpcf7 p img{
+	margin: 0 0 15px 0;
+}
 .wpcf7 button {
 	background: #2a2a2b;
 	border-color: #242425;
@@ -392,7 +427,8 @@ header{
 
 .wpcf7 textarea {
 	padding-bottom: 8px;
-	width: 100%;
+	width: 50%;
+	resize: none;
 }
 
 .wpcf7 input:active,
@@ -426,13 +462,19 @@ header{
 footer{
 	height: 50px;
 	width: 100%;
-	background: #0f0;
+	background: #333;
 	bottom: -1244px;
 	z-index: 999;
 	position: relative;
+	text-align: center;
+	color: #ccc;
+}
+footer h4{
+	line-height: 50px;
+	font-family: 'Ubuntu';
 }
 .footer-shadow{
-	height: 725px;
+	height: 800px;
 	bottom: -1284px;
 	position: relative;
 }
@@ -525,11 +567,17 @@ footer{
 .project-info > p{
 	padding-top: 100px;
 }
+.project-img-container{
+	/*margin-top: 20px;*/
+	margin: 20px 0;
+}
 .project-img{
 	height: 300px;
-	width: 400px;
+	/*width: 400px;*/
+	width: 100%;
 	background: #aa0;
 	float: right;
+	margin-top: 10px;
 }
 
 #project-title-project > aside{
@@ -560,7 +608,7 @@ footer{
 
 .project-showcase{
 	width: 100%;
-	background: #0f0;
+	/*background: #0f0;*/
 	min-height: 550px;
 	margin: 0;
 	padding: 0;
@@ -593,7 +641,8 @@ footer{
 	display: table;
 }
 .project-showcase > li{
-	transition: all .25s;
+
+	transition: all 1s;
 
 	height: 250px;
 	width: 33.3%;
@@ -647,29 +696,55 @@ footer{
 
 .project-decp-container{
 	width: 100%;
-
-	transition: all .25s;
+	height: 400px;
+	/*transition: all .25s;*/
 }
 .project-content{
 	/*width: 100%;*/
 	position: absolute;
 	background-color: #ff0;
-	min-height: 400px;
+	/*min-height: 400px;*/
 	width: 1020px;
+	/*top: 100px;*/
+	/*z-index: 1;*/
 }
 
 .row.project-content{
 	margin: 0;
-	display: none;
+	/*display: none;*/
+	max-height: 0; 
+	overflow: hidden;
+	/*transition: max-height .1s;*/
+/*	transition-property: top;
+	transition-duration: 1s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);*/
+	 -moz-transition-duration: .3s;
+    -webkit-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+    -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+
 }
 .row.project-content.active-proj{
-	display: inline-block;
+	/*display: inline-block;*/
+	max-height: 700px;
 	position: relative;
-	transition: all .25s;
+  -moz-transition-duration: .3s;
+    -webkit-transition-duration: 3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+    -moz-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
 	
 }
 .project-decp-container{
-	transition: all 1s;
+	/*transition: all 1s;*/
 
 }
 #PHLaw-content{
@@ -703,4 +778,23 @@ footer{
 #myTheme-projects .page-padding{
 	padding: 75px 0;
 
+}
+/***********************CSS Ribbon********************************/
+ .corner-ribbon{
+	width: 300px;
+	background: #e43;
+	position: absolute;
+	text-align: center;
+	line-height: 50px;
+	letter-spacing: 1px;
+	color: #f0f0f0;
+	z-index: 9;
+	top: 60px;
+	right: -70px;
+	left: auto;
+	font-family: 'Ubuntu';
+	font-size: 16px;
+	text-transform: uppercase;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
 }

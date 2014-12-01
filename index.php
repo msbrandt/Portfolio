@@ -16,6 +16,7 @@
        $b_count = 0;
 
 ?>
+<div class="corner-ribbon">Under construction!</div>
        <section id="myTheme-home"class="page-wrapper" data-magic="image" data-s_count="0">
        <!-- <article class="content-padding"> -->
               <div class="content" id="home-content">
