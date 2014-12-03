@@ -62,6 +62,12 @@ h1{
 	color: #ccc;
 	margin: 0 auto;
 }
+.content > h1{
+	padding: 20px;
+	font-family: 'Ubuntu Condensed';
+	color: #ccc;
+	margin: 30px 0;	
+}
 
 
 /********  1.0 - Navbar / Header *************************************************/
@@ -79,7 +85,7 @@ h1{
 }
 #myTheme-home > .content{
 	position: absolute;
-	top: 0;
+	top: -30px;
 	bottom: 0;
 	right: 0;
 	left: 0;
@@ -89,21 +95,64 @@ h1{
 .content#home-content{
 	padding-top: 100px;
 	width: 660px;
-	background-color: rgba(0,0,0,0.65);
-	min-height: 350px;
+	background-color: rgba(0,0,0,0.75);
+	min-height: 280px;
 	color: #ccc;
-	border-radius: 10px;	
+	/*border-radius: 10px;	*/
 }
-.extra-padding > h1{
-	margin-bottom: 10px;
-	text-align: left;
-	font-family: 'Raleway';
+/************************************************************/
+.content#home-content:before { 
+	content: ""; 
+	position: absolute; 
+	top: -155px; left: 0; 
+	width: 0; 
+	height: 0; 
+	border-left: 330px solid transparent; 
+	border-right: 330px solid transparent; 
+	border-bottom: 155px solid rgba(0,0,0,0.75); 
+} 
+.content#home-content:after { 
+	content: ""; 
+	position: absolute; 
+	bottom: -155px; left: 0; 
+	width: 0; 
+	height: 0; 
+	border-left: 330px solid transparent; 
+	border-right: 330px solid transparent; 
+	border-top: 155px solid rgba(0,0,0,0.75); 
+}
+/************************************************************/
+
+#freelance{
+	height: 40px;
+	width: 200px;
+	/*padding: 0 5px;*/
+	line-height: 38px;
+	background-color: #454545;
+	position: absolute;
+	bottom: 0px;
+	left: 0; right: 0;
+	margin: auto;
+	text-align: center;
+	border-radius: 10px;
+	font-family: 'Ubuntu';
+	border: 1px solid #9f9f9f;	
+	cursor: pointer;
+	font-size: 16px;
 	text-transform: capitalize;
+	transition: all .25s;
+}
+#freelance > a{
+	color: #ccc;
+}
+#freelance:hover{
+	background-color: #5F5F5F;
+	border-color: #fff;
+	color: #fff;
 
 }
-.extra-padding p{
-	font-family: 'Open Sans';
-}
+
+
 #primary.myTheme_nav > ul > li > a.active-nav{
 	color: #999;
 	text-decoration: underline;
@@ -150,12 +199,13 @@ header{
 #primary.myTheme_nav > ul > li{
 	list-style: none;
 	display: inline-block;
-	padding: 13px 10px;
+	padding: 10px 10px;
 
 }
 #primary.myTheme_nav > ul > li > a{
-	font-size: 16px;
-	font-family: 'Ubuntu';
+	font-size: 20px;
+	/*font-family: 'Ubuntu';*/
+	font-family: 'Ubuntu Condensed';
 	color: #ccc;
 }
 #primary.myTheme_nav > ul > li > a:hover{
@@ -169,8 +219,11 @@ header{
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	top: 50px;
+	top: 0px;
+	/*top: 50px;*/
 	font-size: 125px;
+	/*font-family: 'Denk One';*/
+	/*font-family: 'Voltaire';*/
 	font-family: 'Ubuntu';
 	text-transform: uppercase;
 	text-shadow: 5px 5px 3px #333;
@@ -181,17 +234,22 @@ header{
 	height: 46px;
 	color: #ddd;
 	position: absolute;
-	bottom: 50px;
+	bottom: 100px;
+	padding: 0;
+	text-align: center;
 }
 #hero-content > ul > li{
 	/*width: 33.3%;*/
 	/*float: left;*/
 	display: inline;
 	padding: 0 10px;
-	text-align: center;
 	list-style: none;
 	font-size: 46px;
-	font-family: 'Ubuntu';
+	font-family: 'Ubuntu Condensed';
+	/*font-family: 'Denk One';*/
+
+	/*font-family: 'Voltaire';*/
+
 	text-shadow: 5px 5px 3px #333;
 }
 .myTheme-more{
@@ -209,6 +267,7 @@ header{
 	/*top: unset;*/
 	top: auto;
 	color: #fff;
+	text-align: center;
 }
 #scroll-down span{
 	color: #fff;
@@ -218,6 +277,46 @@ header{
 	color: #888;
 }
 /********  2.0 - About ***********************************************************/
+
+.extra-padding > h1{
+	margin-bottom: 10px;
+	text-align: left;
+	/*font-family: 'Voltaire';*/
+	/*font-family: 'Oswald';*/
+	/*font-family: 'Denk One';*/
+	/*font-family: 'Poiret One';*/
+	/*font-family: 'Ubuntu';*/
+	font-family: 'Ubuntu Condensed';
+	color: #fff;
+	
+	text-transform: capitalize;
+}
+
+.extra-padding p{
+	font-family: 'Open Sans';
+	/*font-family: 'Poiret One';*/
+	/*font-family: 'Jura';*/
+	color: #ddd;
+	font-size: 16px;
+}
+
+.my-image h1{
+	font-size: 300px;
+	/*font-family: 'Allerta Stencil';*/
+	/*font-family: 'Denk One';*/
+	/*font-family: 'Snippet';*/
+	/*font-family: 'Voltaire';*/
+	font-family: 'Federo';
+	position: absolute;
+}
+.my-image h1:first-of-type{
+	left: 35px;
+	top: -20px;
+}
+.my-image h1:last-of-type{
+	right: 38px;
+	bottom: 60px;
+}
 #myTheme-about{
 	/*background-color: #888;*/
 	/*position: relative;*/
@@ -225,14 +324,14 @@ header{
 	z-index: 3;
 }
 #myTheme-about .content{
-	min-height: 640px;
+	min-height: unset;
 }
 #about-content{
 	position: relative;
 }
 #about-content > div{
 	position: relative;
-	height: 610px;
+	height: 500px;
 }
 
 #about-content > div > .col-md-6{
@@ -244,6 +343,8 @@ header{
 #about-content > div > .col-md-6:last-of-type{
 	bottom: 0;
 	left: 20px;
+	width: 70%;
+
 }
 .my-image{
 	height: 600px;
@@ -257,7 +358,7 @@ header{
 	right: 40px;
 }
 .extra-padding{
-	padding: 0px 20px;
+	padding: 0px 20px 20px 20px;
 	bottom: 0;
 }
 
@@ -266,12 +367,16 @@ header{
 	/*background-color: #888;*/
 }
 #myTheme-projects h1{
-	margin: 30px 0;
+	/*font-family: 'Raleway';*/
 	color: #333;
-	font-family: 'Raleway';
+	padding: unset;
 }
 #projects-content.content{
-	/*background-color: unset;*/
+	background-color: unset;
+}
+#myTheme-projects .project-decp > ul > li > h1{
+	font-family: 'Ubuntu Condensed';
+	color: #ccc;
 }
 /********  4.0 - Resume **********************************************************/
 #myTheme-resume{
@@ -289,6 +394,7 @@ header{
 	border: 1px solid #333;
 	border-radius: 5px;
 	cursor: pointer;
+	-webkit-transition: all .25s;
 	transition: all .25s;
 }
 .download-version:hover,
@@ -300,10 +406,18 @@ header{
 .download-version > a{
 	color: #333;
 	text-decoration: none;
+	font-family: 'Ubuntu';
+	-webkit-transition: all .25s;
+	transition: all .25s;
+
+
 }
 .download-version > a > span{
 	margin-right: 5px;
 	color: #333;
+	-webkit-transition: all .25s;
+	transition: all .25s;
+
 }
 
 
@@ -327,6 +441,10 @@ header{
 	height: 830px;
 	border-right: 1px solid #ccc; 
 	position: relative;
+	width: 25% !important;
+}
+#myTheme-resume .col-md-9{
+	width: 75% !important;
 }
 #myTheme-resume .top-section{
 	height: 50%;
@@ -336,6 +454,7 @@ header{
 	height: 50%;
 	/*background: #0ff;*/
 	position: relative;
+	font-family: 'Ubuntu Condensed';
 }
 #myTheme-resume .bottom-section .bottom-content{
 	position: absolute;
@@ -347,23 +466,38 @@ header{
 	letter-spacing: 2px;
 	font-size: 50px;
 	margin-top: 35px;
+	font-family: 'Ubuntu';
 
 }
 #myTheme-resume .top-section h3{
 	padding: 0;
 	margin: 0;
+	font-family: 'Ubuntu Condensed';
+
 }
 #myTheme-resume .top-section h3:first-of-type{
 	margin-top: 15px;
 }
+
 .heading{
-	font-family: 'Owswald';
+	font-family: 'Ubuntu';
+	color: #111;
+}
+.sub-heading{
+	font-family: 'Ubuntu Condensed';
+	color: #333;
+}
+.sub-heading + p,
+.sub-heading + ul > li,
+#tech-skills{
+	font-family: 'Open Sans';
+	color: #555;
 }
 
 /********  5.0 - Contact**********************************************************/
 #myTheme-contact-hidden #contact-content{
 	position: absolute;
-	bottom: 125px;
+	bottom: 35px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -376,11 +510,12 @@ header{
 	/*content: " ";*/
 	bottom: 0px !important;
 	height: 100%;
+	width: 100%;
 }
 #myTheme-contact-hidden h1{
 	width: 100%;
 	text-align: center;
-	font-family: 'Raleway';
+	font-family: 'Ubuntu Condensed';
 	margin: 20px 0;
 }
 
@@ -396,9 +531,12 @@ header{
 	padding: 8px 8px 7px;
 	width: 50%;
 	margin: 0 auto;
+	-webkit-transition: all .25s;
+	transition: all .25s;
 }
 .wpcf7 p{
 	text-align: center;
+	font-family: 'Open Sans';
 }
 .wpcf7 p img{
 	margin: 0 0 15px 0;
@@ -412,16 +550,16 @@ header{
 .wpcf7 button:active,
 .wpcf7 button:focus,
 .wpcf7 button:hover {
-	background-color: #272728;
-	border-color: #1f1f20;
+	/*background-color: #272728;*/
+	border-color: #fff;
 	color: #fff;
 	outline: none;
 }
 
 .wpcf7 input,
 .wpcf7 textarea {
-	background: #545759;
-	border-color: #616163;
+	background: #454545;
+	border-color: #9f9f9f;
 	color: #fff;
 }
 
@@ -437,8 +575,8 @@ header{
 .wpcf7 textarea:active,
 .wpcf7 textarea:focus,
 .wpcf7 textarea:hover {
-	background: #5e6163;
-	border-color: #767679;
+	/*background: #5e6163;*/
+	border-color: #fff;
 	outline: none;
 }
 
@@ -463,7 +601,7 @@ footer{
 	height: 50px;
 	width: 100%;
 	background: #333;
-	bottom: -1244px;
+	bottom: -1270px;
 	z-index: 999;
 	position: relative;
 	text-align: center;
@@ -472,12 +610,74 @@ footer{
 footer h4{
 	line-height: 50px;
 	font-family: 'Ubuntu';
+	margin: 0;
 }
 .footer-shadow{
 	height: 800px;
 	bottom: -1284px;
 	position: relative;
+} 
+/********  7.0 - Media queries******************************************************/
+@media all and (max-width: 1024px){
+	.content{
+		width: 100%;
+	}
+	.my-image{
+		right: -10px;
+	}
+	#myTheme-projects .project-content{
+		width: 100%;
+	}
+	#myTheme-resume .content{
+		padding: 10px;
+		width: 99.5%;
+	}
+	#myTheme-resume .top-section h1{
+		font-size: 40px;
+	}
+	#myTheme-resume .top-section h3{
+		font-size: 18px;
+	}
+	#myTheme-resume .col-md-9{
+		float: right;
+		width: 73% !important;
+	}
+	#myTheme-resume .col-md-3{
+		float: left;
+	}
+	.page-wrapper{
+		overflow: hidden;
+	}
 }
+
+@media all and (max-width: 767px){
+	#home-content.content{
+		width: 100%;
+		height: 200px;
+	}
+	#home-content.content:before{
+		border: unset;
+	}
+
+	#home-content.content:after{
+		border: unset;
+	}
+	#freelance{
+		bottom: 40px;
+	}
+	#hero-content > h1{
+		font-size: 100px;
+		top: 10px;
+	}
+	#hero-content > ul{
+		bottom: 115px;
+	}
+	#hero-content > ul > li{
+		font-size: 35px;
+	}
+
+}
+
 /********  8.0 - Blank slides******************************************************/
 
 .blank{
@@ -647,7 +847,7 @@ footer h4{
 	height: 250px;
 	width: 33.3%;
 	content: "";
-	background: #00c8ff;
+	background: #333;
 	list-style: none;
 	position: relative;
 	display: inline-block;
@@ -702,7 +902,7 @@ footer h4{
 .project-content{
 	/*width: 100%;*/
 	position: absolute;
-	background-color: #ff0;
+	background-color: rgba(3,3,3,.75);
 	/*min-height: 400px;*/
 	width: 1020px;
 	/*top: 100px;*/
@@ -733,7 +933,7 @@ footer h4{
 	/*display: inline-block;*/
 	max-height: 700px;
 	position: relative;
-  -moz-transition-duration: .3s;
+  	-moz-transition-duration: .3s;
     -webkit-transition-duration: 3s;
     -o-transition-duration: .3s;
     transition-duration: .3s;
@@ -754,10 +954,13 @@ footer h4{
 
 .project-decp > ul{
 	padding: 0;
+	font-size: 16px;
 }
 .project-decp > ul > li{
 	list-style: none;
 	padding: 5px 0;
+	font-family: 'Open Sans';
+
 }
 .project-decp > ul > li h1{
 	margin-top: 10px;
@@ -765,9 +968,13 @@ footer h4{
 .project-decp > ul > li a{
 	margin: 5px 0;
 	color: #aaa;
+	font-family: 'Open Sans';
+
 }
 .project-decp > ul > li span{
 	text-transform: capitalize;
+	font-family: 'Open Sans';
+
 }
 #myTheme-projects .content{
 	padding: 0;

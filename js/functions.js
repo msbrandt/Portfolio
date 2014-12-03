@@ -1,9 +1,11 @@
 jQuery(function($){
   var windowH = $(window).height(); 
+  var windowW = $(window).width();
   var homePg = $('#myTheme-home'), aboutPg = $('#myTheme-about'), proPg = $('#myTheme-projects'), header = $('header'), tempHeader = $('.my-nav-temp');
   var projContentBox = $('.project-decp-container');
   var newh = windowH - 100;
-  var homeArrow = $('main > a:first');
+  var homeArrow = $('#scroll-down');
+  var fl = $('#freelance');
   var navBtns = $('#primary.myTheme_nav > ul > li > a');
   homePg.height(windowH);
   // aboutPg.css('bottom', -windowH);
@@ -39,6 +41,13 @@ jQuery(function($){
     $(navBtns[0]).addClass('active-nav');
 
   });
+  fl.click(function(e){
+    var ha = '#myTheme-contact';
+    pageScroll(e,ha);
+    $(navBtns[0]).addClass('active-nav');
+
+  })
+
   navBtns.click(function(e){
     var ha = this.hash;
     pageScroll(e,ha);
@@ -61,7 +70,6 @@ jQuery(function($){
   //*******************************************************************************************
   var browserType = navigator.userAgent.toLowerCase();
 
-  var wh = $(window).height();
   var op = 0,
       fadeSt = 50,
       fadeEnd = 1000;
@@ -76,112 +84,119 @@ jQuery(function($){
         content_resum = $(contentAry[2]),
         content_contact = $(contentAry[3]);
   //*******************************************************************************************
-  function magicScroll(images, content, locations){
+  function magicScroll(images, content, locations, screenSize){
     var st = $(window).scrollTop();
-
-    var sb = st + wh;
-
-    if(st > wh){
-      header.addClass('fix-nav');
-      $('#myTheme-home').addClass('change-z')
-      tempHeader.show();
-
-    }else{
-      tempHeader.hide();
-      $('#myTheme-home').removeClass('change-z')
-      header.removeClass('fix-nav');
-    }
-
-    var backPos = st / 10;
-  	var backPos2 = st / 5;
-  	
     var aboutB = content_about.height(),
         projB = content_proj.offset().top-350,
         resmB = content_resum.offset().top-100;
+    if(screenSize > 768){
 
-      if(st<=fadeSt){
-        op = 1;
-      }else if(st<=fadeEnd){
-        op = 1 - st / fadeEnd;
+      var sb = st + windowH;
+
+      if(st > windowH){
+        header.addClass('fix-nav');
+        $('#myTheme-home').addClass('change-z')
+        tempHeader.show();
+
+      }else{
+        tempHeader.hide();
+        $('#myTheme-home').removeClass('change-z')
+        header.removeClass('fix-nav');
       }
-      if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
-        homeSec.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -backPos + ')');
-        hero.css({"-webkit-transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
-      }
-      homeSec.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -backPos + ')');
-      hero.css({"transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
 
-      var aboutN = aboutB + 200;
-      // if(projContentBox.hasClass('active-content')){
-        // var projN = projB + 600;
+      var backPos = st / 10;
+    	var backPos2 = st / 5;
+    	
 
-      // }else{
+
+        if(st<=fadeSt){
+          op = 1;
+        }else if(st<=fadeEnd){
+          op = 1 - st / fadeEnd;
+        }
+        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+          homeSec.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -backPos + ')');
+          hero.css({"-webkit-transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
+        }
+        homeSec.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -backPos + ')');
+        hero.not('.corner-ribbon').css({"transform": 'matrix(1, 0, 0, 1, 0, '+ -backPos2 + ')', 'opacity': op});
+
+        var aboutN = aboutB + 200;
+
         var projN = projB + 400;
 
-      // }
 
-      if( st > aboutN ){
-        var blankHeight = img_section_1.parent().height();
-        var offsetValAbt = (st - aboutN);
-        var b = (((offsetValAbt / blankHeight)*2)*75);
-        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
-          img_section_1.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
+        if( st > aboutN ){
+          var blankHeight = img_section_1.parent().height();
+          var offsetValAbt = (st - aboutN);
+          var b = (((offsetValAbt / blankHeight)*2)*75);
+          if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+            img_section_1.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
 
-        };
-        img_section_1.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
+          };
+          img_section_1.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -b + ')');
 
+        }
+
+        if ( st > projN ){
+          var offsetValPrj = (st - projB);
+          var bb = (((offsetValPrj / blankHeight)*2)*75)-80;
+
+          if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+            img_section_2.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
+
+          };
+          img_section_2.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
+
+
+        }
+        if(st > resmB){
+          var offsetValResm = (st - resmB);
+          var transVal = ((offsetValResm / blankHeight)*2)*75;
+          if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
+            img_section_3.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
+
+          };
+          img_section_3.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
+        }
+    }
+
+        if( st > 0 && st < (windowH-200)){
+          navBtns.removeClass('active-nav');
+          $(navBtns[0]).addClass('active-nav');
+
+        }
+        if( st < (aboutB + img_section_1.height())){
+          navBtns.removeClass('active-nav');
+          $(navBtns[0]).addClass('active-nav');        
+        }
+        if( st > (aboutB + img_section_1.height() - 100)){
+          navBtns.removeClass('active-nav');
+          $(navBtns[1]).addClass('active-nav');
+        }
+        if( st > (projB + img_section_1.height() - 100)){
+          navBtns.removeClass('active-nav');
+          $(navBtns[2]).addClass('active-nav');
+        }
+        if( st > (resmB + img_section_1.height() - 100)){
+          navBtns.removeClass('active-nav');
+          $(navBtns[3]).addClass('active-nav');
+        }
+      if(st > windowH){
+        header.addClass('fix-nav');
+        $('#myTheme-home').addClass('change-z')
+        tempHeader.show();
+
+      }else{
+        tempHeader.hide();
+        $('#myTheme-home').removeClass('change-z')
+        header.removeClass('fix-nav');
       }
-
-      if ( st > projN ){
-        var offsetValPrj = (st - projB);
-        var bb = (((offsetValPrj / blankHeight)*2)*75)-80;
-
-        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
-          img_section_2.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
-
-        };
-        img_section_2.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -bb+ ')');
-
-
-      }
-      if(st > resmB){
-        var offsetValResm = (st - resmB);
-        var transVal = ((offsetValResm / blankHeight)*2)*75;
-        if((browserType.indexOf('chrome') > -1) || browserType.indexOf('applewebkit')){
-          img_section_3.css("-webkit-transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
-
-        };
-        img_section_3.css("transform", 'matrix(1, 0, 0, 1, 0, '+ -transVal+ ')');
-      }
-
-      if( st > 0 && st < (wh-200)){
-        navBtns.removeClass('active-nav');
-        $(navBtns[0]).addClass('active-nav');
-
-      }
-      if( st < (aboutB + img_section_1.height())){
-        navBtns.removeClass('active-nav');
-        $(navBtns[0]).addClass('active-nav');        
-      }
-      if( st > (aboutB + img_section_1.height() - 100)){
-        navBtns.removeClass('active-nav');
-        $(navBtns[1]).addClass('active-nav');
-      }
-      if( st > (projB + img_section_1.height() - 100)){
-        navBtns.removeClass('active-nav');
-        $(navBtns[2]).addClass('active-nav');
-      }
-      if( st > (resmB + img_section_1.height() - 100)){
-        navBtns.removeClass('active-nav');
-        $(navBtns[3]).addClass('active-nav');
-      }
-
-
-
-
+    
   };
+
   $(window).scroll(function(){
-  	magicScroll(imgAry, contentAry, locateAry);
+  	magicScroll(imgAry, contentAry, locateAry, windowW);
   })
 
 

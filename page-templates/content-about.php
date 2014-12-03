@@ -20,7 +20,11 @@ $this_query = new WP_Query( $argsX );
 			$this_query->the_post();
 		?>
 		<div class="row">
-			<div class="my-image col-md-6" style="background-image: url('<?php echo get_template_directory_uri();?>/img/me_use.png')"></div>
+			<!-- <div class="my-image col-md-6" style="background-image: url('<?php echo get_template_directory_uri();?>/img/me_use.png')"></div> -->
+			<div class="my-image col-md-6">
+				<h1>M</h1>
+				<h1>B</h1>
+			</div>
 			<div class="extra-padding col-md-6">
 				<h1><?php the_title(); ?></h1>
 				<p><?php the_content(); ?></p>

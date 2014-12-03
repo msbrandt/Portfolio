@@ -16,17 +16,22 @@
        $b_count = 0;
 
 ?>
-<div class="corner-ribbon">Under construction!</div>
+
        <section id="myTheme-home"class="page-wrapper" data-magic="image" data-s_count="0">
        <!-- <article class="content-padding"> -->
+       <div class="corner-ribbon">Under construction!</div>
+
               <div class="content" id="home-content">
                      <div id="hero-content">
                             <h1>mike b</h1>
                             <ul>
-                                   <li>Design</li>
-                                   <li>Develope</li>
-                                   <li>Manage</li>
+                                   <li>Design.</li>
+                                   <li>Develope.</li>
+                                   <li>Manage.</li>
                             </ul>
+                     </div>
+                     <div id="freelance">
+                            <span>Available for freelance</span>
                      </div>
               </div>
        <!-- </article> -->
