@@ -121,7 +121,7 @@ function myTheme_get_post($theCatID){
 
 function myTheme_header(){
 	?>
-       <a id="scroll-down"href="#myTheme-about"><span class="myTheme-more glyphicon glyphicon-chevron-down"></span></a>
+       <a class="my-nav-button" id="scroll-down" href="#myTheme-about"><span class="myTheme-more glyphicon glyphicon-chevron-down"></span></a>
 
        <header>
               <nav class="navbar-inverse my-nav" role="navigation">

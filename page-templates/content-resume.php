@@ -23,7 +23,7 @@
 ?>
 <div class="download-version pull-right"><a href="<?php echo get_template_directory_uri(); ?>/img/Michael_Brandt_resume.pdf" target="_blank"><span class="glyphicon glyphicon-save"></span>Resume</a></div>
 
-<div clas="row">
+<div class="row" id="regular_version">
 	<div class='col-md-3'>
 		<div class="top-section">
 			<h1>Michael <br />Brandt</h1>
@@ -97,5 +97,14 @@
 			<li>Knowledgeable in Microsoft Office and Adobe Creative Suite</li>
 		</ul>
 
+	</div>
+</div>
+<div class="row" id="mobile_version">
+	<div class="col-md-12">
+		<h1>Michael Brandt</h1>
+		<h3>Production Developer</h3> 
+		<h3>Syracuse Spiders</h3>
+		<p>For more informaiton about my resume, feel free to download it or check out my <a class="my-nav-button" href="#myTheme-about"> about </a> section!</p>
+		<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/curved_arrow.png"> -->
 	</div>
 </div>

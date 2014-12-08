@@ -72,7 +72,7 @@ class BS_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$attributes = '';
 		$this_link = strtolower( $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after);
 		$item_output = $args->before;
-		$item_output .= '<a href="#myTheme-' . $this_link . '">';
+		$item_output .= '<a href="#myTheme-' . $this_link . '" class="my-nav-button">';
 		/** This filter is documented in wp-includes/post-template.php */
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		$item_output .= '</a>';

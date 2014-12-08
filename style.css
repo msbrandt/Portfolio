@@ -14,8 +14,8 @@ Version: v1.0
 *  4.0 - Resum
 *  5.0 - Contacts
 *  6.0 - Footer
-*  7.0 - Media queries
-*  8.0 - Blank slides
+*  7.0 - Blank slides
+*  8.0 - Media queries
 *  
 */
 
@@ -90,7 +90,7 @@ h1{
 	right: 0;
 	left: 0;
 	margin: auto;
-	height: 300px;
+	height: 298px;
 }
 .content#home-content{
 	padding-top: 100px;
@@ -125,7 +125,7 @@ h1{
 
 #freelance{
 	height: 40px;
-	width: 200px;
+	width: 240px;
 	/*padding: 0 5px;*/
 	line-height: 38px;
 	background-color: #454545;
@@ -373,6 +373,7 @@ header{
 }
 #projects-content.content{
 	background-color: unset;
+	background-color: inherit;
 }
 #myTheme-projects .project-decp > ul > li > h1{
 	font-family: 'Ubuntu Condensed';
@@ -579,6 +580,12 @@ header{
 	border-color: #fff;
 	outline: none;
 }
+form p input.wpcf7-submit{
+	background-color: #333;
+}
+form p input.wpcf7-submit:hover{
+	background-color: #777;
+}
 
 ::-webkit-input-placeholder {
 	color: #ddd;
@@ -616,8 +623,47 @@ footer h4{
 	height: 800px;
 	bottom: -1284px;
 	position: relative;
-} 
-/********  7.0 - Media queries******************************************************/
+}
+
+/********  7.0 - Blank slides******************************************************/
+
+.blank{
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;	
+	position: relative;
+	/*z-index: 2;*/
+	/*margin: -125px 0;*/
+	height: 1000px;
+	background-color: #333;
+	-moz-animation: parallex 5s infinite linear;
+	animation: parallex 5s infinite linear;
+	/*bottom: -1313px;*/
+}
+.blank-container{
+	height: 500px;
+	width: 100%;
+	background-color: #0f0;
+	z-index: 9;
+	position: relative;
+	overflow: hidden;
+	/*position: relative;*/
+}
+#blank-2{
+	background-image: url('img/powderBLK.jpg');
+	transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#blank-4{
+	background-image: url('img/woodsBLK.jpg');
+	transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#blank-6{
+	background-image: url('img/contactBLK.png');
+	transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+/********  8.0 - Media queries******************************************************/
 @media all and (max-width: 1024px){
 	.content{
 		width: 100%;
@@ -675,45 +721,135 @@ footer h4{
 	#hero-content > ul > li{
 		font-size: 35px;
 	}
+	.my-image > h1{
+		display: none;
+	}
+	#about-content > div > .col-md-6:last-of-type{
+		width: 100%;
+		left: 0;
+		text-align: center;
+		top: 50px;
+	}
+	#regular-showcase,
+	.regular-container{
+		display: none;
+	}
+	#myTheme-projects .content > ul{
+		padding: 10px;
+	}
+	#mobile-showcase li{
+		border-bottom: 1px solid #333;
+		margin-bottom: 10px;
+	}
+	#mobile-showcase h5,
+	#mobile-showcase p{
+		color: #333;
+		font-family: 'Open Sans';
+	}
+	#mobile-showcase h5 a{
+		color: #666;
+		font-family: 'Open Sans';
+	}
+	.content > h1{
+		text-align: center;
+		margin: 15px 0;
 
+	}
 }
+@media all and (max-width: 600px){
+	.admin-bar .fix-nav{
+		top: 0;
+	}
+	#myTheme-home{
+		top: 0;
+	}
+	.blank#blank-2,
+	.blank#blank-4,
+	.blank#blank-6{
+		-webkit-transform: matrix( 1, 0, 0, 1, 0, -180);
+		transform: matrix( 1, 0, 0, 1, 0, -180);
+	}
+	#regular_version{
+		display: none;
+	}
+	#mobile_version{
+		display: block;
+	}
+	.wpcf7 button, .wpcf7 input, .wpcf7 textarea{
+		width: 95%;
+	}
+	#myTheme-contact-hidden #contact-content{
+		bottom: -10px;
+	}
+	textarea{
+		height: 100px;
+	}
+	footer{
+		display: none;
+	}
+}
+@media all and (max-width: 404px){
+	#freelance{
+		bottom: 20px;
+	}
+	.extra-padding > h1,
+	.content > h1{
+		text-align: center;
+	}
+	div > .project-showcase > li{
+		width: 50%;
+	}
+	#myTheme-resume .col-md-3{
+		border-right: none;
+		width: 100% !important;
+	}
+	#myTheme-resume .top-section h1{
+		letter-spacing: 0;
+		text-align: center;
+	}
+	.top-section > h1 > br{
+		display: none;
+	}
+	li .shadow-title{
+		line-height: normal;
+		padding-top: 50%;
+	}
+	.download-version{
+		width: 100%;
+		text-align: center;
+	}
+	#myTheme-resume,
+	#myTheme-resume .content{
+		min-height: 200px;
+	}
+	#mobile_version h1{
+		margin-top: 50px;
+		font-family: 'Ubuntu Condensed';
+		text-align: center;
+	}
+	#mobile_version h3{
+		text-align: center;
+		font-family: 'Ubuntu Condensed';
+		margin: 0;
+	}
+	#mobile_version h3:first-of-type{
+		margin-top: 10px;
+	}
+	#mobile_version p{
+		margin-top: 10px;
+		width: 100%;
+		text-align: center;
+	}
+	#mobile_version img{
+		height: 45px;
+		width: 40px;
+		-webkit-transform: scaleX(-1) rotate(-60deg);
+		transform: scaleX(-1) rotate(-60deg);
+		position: absolute;
+		right: 50px;
 
-/********  8.0 - Blank slides******************************************************/
-
-.blank{
-	width: 100%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;	
-	position: relative;
-	/*z-index: 2;*/
-	/*margin: -125px 0;*/
-	height: 1000px;
-	background-color: #333;
-	/*bottom: -1313px;*/
+	}
 }
-.blank-container{
-	height: 500px;
-	width: 100%;
-	background-color: #0f0;
-	z-index: 9;
-	position: relative;
-	overflow: hidden;
-	/*position: relative;*/
-}
-#blank-2{
-	background-image: url('img/powderBLK.jpg');
-	transform: matrix(1, 0, 0, 1, 0, 0);
-}
-#blank-4{
-	background-image: url('img/woodsBLK.jpg');
-	transform: matrix(1, 0, 0, 1, 0, 0);
-}
-#blank-6{
-	background-image: url('img/contactBLK.png');
-	transform: matrix(1, 0, 0, 1, 0, 0);
-}
-
 /*********************Project showcase plugin*************************************/
 
 #project-title-project > aside.col-md-2{
@@ -1004,4 +1140,13 @@ footer h4{
 	text-transform: uppercase;
 	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
+}
+
+@-moz-keyframes parallex{
+	from { -moz-transform: martrix(1, 0, 0, 1, 0, 0); }
+	to { -moz-transform: martrix(1, 0, 0, 1, 0, -100); }
+}
+@keyframes parallex{
+	from { transform: martrix(1, 0, 0, 1, 0, 0); }
+	to { transform: martrix(1, 0, 0, 1, 0, -100); }
 }

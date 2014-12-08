@@ -4,9 +4,8 @@
 * @subpackage SUVBC
 * @since Today
 */
-?>
 
-<?php get_header(); ?> 
+ get_header(); ?> 
 
 <main>
 
@@ -30,8 +29,8 @@
                                    <li>Manage.</li>
                             </ul>
                      </div>
-                     <div id="freelance">
-                            <span>Available for freelance</span>
+                     <div id="freelance" class="my-nav-button">
+                            <span>Available for hire or freelance</span>
                      </div>
               </div>
        <!-- </article> -->
