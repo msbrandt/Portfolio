@@ -18,18 +18,17 @@
 
        <section id="myTheme-home"class="page-wrapper" data-magic="image" data-s_count="0">
        <!-- <article class="content-padding"> -->
-       <div class="corner-ribbon">Under construction!</div>
 
               <div class="content" id="home-content">
                      <div id="hero-content">
-                            <h1>mike b</h1>
+                            <h1>Michael B</h1>
                             <ul>
                                    <li>Design.</li>
-                                   <li>Develope.</li>
+                                   <li>Develop.</li>
                                    <li>Manage.</li>
                             </ul>
                      </div>
-                     <div id="freelance" class="my-nav-button">
+                     <div id="freelance" class="my-nav-button"> 
                             <span>Available for hire or freelance</span>
                      </div>
               </div>

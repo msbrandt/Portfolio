@@ -104,7 +104,6 @@
 		<h1>Michael Brandt</h1>
 		<h3>Production Developer</h3> 
 		<h3>Syracuse Spiders</h3>
-		<p>For more informaiton about my resume, feel free to download it or check out my <a class="my-nav-button" href="#myTheme-about"> about </a> section!</p>
-		<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/curved_arrow.png"> -->
+		<p>For more informaiton about myself or resume, feel free to download it or check out my <a class="my-nav-button" href="#myTheme-about"> about </a> section!</p>
 	</div>
 </div>
