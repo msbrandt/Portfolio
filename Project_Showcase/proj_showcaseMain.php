@@ -4,8 +4,8 @@
 * @author    Mike Brandt 
 * @license   GPL-2.0+
 *
-*Plugin Name: Project Showcase
-*Description: featured 
+*Plugin Name: Portfolio Project Showcase
+*Description: Add, edit, or delete projects to a portoilio website.
 *Version: v1.0
 *Author: Mikey b
 *

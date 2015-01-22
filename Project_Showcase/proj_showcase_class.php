@@ -64,7 +64,7 @@ class proj_showcase {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_project_admin_scripts') );
 		add_action( 'admin_enqueue_scripts', array( $this, 'proj_custom_media') );
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'proj_public_scripts' ) );
+		// add_action( 'wp_enqueue_scripts', array( $this, 'proj_public_scripts' ) );
 
 
 		// Load style sheet.
@@ -79,8 +79,6 @@ class proj_showcase {
 		add_action( 'wp_ajax_proj_edit', array( $this, 'proj_edit_handler') );
 		add_action( 'wp_ajax_proj_get_proj', array( $this, 'proj_get_proj_handler') );
 
-		
-		
 	}
 	/**
 	 * Return an instance of this class.
@@ -157,7 +155,7 @@ class proj_showcase {
 	 */
 
 	public function proj_public_scripts() {
-			wp_enqueue_script( $this->plugin_slug . '-public-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
+			wp_enqueue_script( $this->plugin_slug . '-public-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ) );
 			wp_localize_script( $this->plugin_slug . '-public-script', 'SUVBC_Rosters', array( 'ajaxurl' => admin_url('admin-ajax.php')  ) );
 			
 		}
@@ -168,7 +166,7 @@ class proj_showcase {
 	}
 	//include admin scrips
 	public function enqueue_project_admin_scripts() {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ) );
 	}
 
 	/**
@@ -186,7 +184,7 @@ class proj_showcase {
 		// wp_enqueue_style( 'bootstrap-style', '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', array(), '3.2.0' );
 		// wp_enqueue_style( $this->plugin_slug . '-bootstrap-styles', plugins_url( 'css/bootstrap.min.css', __FILE__ ), array(), $this->version );
 
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/proj_styles.css', __FILE__ ), array(), $this->version );
+		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/proj_styles.css', __FILE__ ), array());
 		
 	}
 	
@@ -241,7 +239,7 @@ class proj_showcase {
 			myTheme_project_title TINYTEXT NOT NULL,
 			myTheme_project_url TINYTEXT NOT NULL,
 			myTheme_project_work TINYTEXT NOT NULL,
-			myTheme_project_decp TINYTEXT NOT NULL,
+			myTheme_project_decp LONGTEXT NOT NULL,
 			myTheme_project_nav_img TINYTEXT NOT NULL,
 			myTheme_project_img TINYTEXT NOT NULL,
 			PRIMARY KEY  myTheme_project_id (myTheme_project_id)
@@ -345,7 +343,7 @@ class proj_showcase {
 			'myTheme_project_work' => $p_work,
 			'myTheme_project_decp' => $p_decp,
 			'myTheme_project_nav_img' => $p_nav_img,
-			'myTheme_project_img' => $p_reg_img
+			'myTheme_project_img' => $p_img
 			);
 
 		$wpdb->update( $table_name, $results, array( 'myTheme_project_id' => $p_id) );

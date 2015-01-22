@@ -5,7 +5,6 @@ jQuery(function($){
 		var formCount = $('form#project-form .proj_input').length,
 			formData = [];
 		var hasData = $('form#project-form .proj_input:eq(0)').val();
-		
 
 		//pull all of user input from form 
 		for(var i=0; i<formCount; i++){
@@ -14,7 +13,6 @@ jQuery(function($){
 		 			if(getFormData){
 			 			formData.push(getFormData);
 					}else{
-						console.log('no val');
 					};	
 		 		}else{
 		 			formData.push(getFormData);
@@ -32,14 +30,14 @@ jQuery(function($){
 			proj_decp = formData[4],  
 			proj_nav_img    = formData[5]; 
 			proj_reg_img    = formData[6]; 
-
-			if(hasData){
+			
+			if(hasData > 1){
 				console.log('update row');
 				$.ajax({
 					url: ajaxurl,
 					type: 'POST',
 					data: {
-						action: 'proj_edit_proj',
+						action: 'proj_edit',
 						proj_id : proj_id,
 						proj_title: proj_title,
 						proj_url: proj_url,
@@ -50,7 +48,6 @@ jQuery(function($){
 					},
 					//on sucess, add player to table and give the user a response 
 					success: function(response){
-						console.log(response);
 						$('.project-admin-section ul').append(response);
 						$('#proj_response').html('Project updated!').delay(5000).fadeOut();
 

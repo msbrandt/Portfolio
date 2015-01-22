@@ -4,31 +4,12 @@ jQuery(function($){
   var homeArrow = $('#scroll-down');
   var fl = $('#freelance');
   var navBtns = $('#primary.myTheme_nav > ul > li > a');
-  var sections = $('section'), c = sections.length;
+  var sections = $('section'), sectionLength = sections.length;
   var button = $('.my-nav-button');
   var needsHelp = browserCeck();
   var ww = $(window).width();
-
-  for( var i = 0; i < c; i++){
-    var currentDiv = $(sections[i]);
-    var currentSec = $(currentDiv).data('magic');
-    if(ww > 1024){
-      if(  currentSec == 'image' ){
-          if(i==0){
-            currentDiv.height(windowH+100);
-            $('header').css('bottom', -windowH);
-          }else{
-            currentDiv.css('bottom', -windowH);
-          };
-
-      }else if( currentSec == 'na' ){
-        currentDiv.css('bottom', -windowH);
-
-      };
-    }else{
-      $('#myTheme-home').height(windowH);
-    }
-  }
+  var mobile = mobileCheck();
+  fixSize();
 
   function pageScroll(e,hash){
     e.preventDefault();
@@ -52,15 +33,15 @@ jQuery(function($){
     return wantsHelp;
   };
 
-  button.on('click', function(e){
-    if($(e.currentTarget).is('#freelance')){
-      var thisHash = '#myTheme-contact';
-      pageScroll(e,thisHash);
-    }else{ 
-      var thisHash = this.hash;
-      pageScroll(e,thisHash);
-    };
-  });
+  function mobileCheck(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      var isMobile = true;
+      $('body').addClass('myTheme-mobile');
+    }else{
+      var isMobile = false;
+    }
+    return isMobile;
+  }
 
   function changeOpacity(st){
     var hero = $('#home-content');
@@ -75,8 +56,40 @@ jQuery(function($){
       }
       hero.css('opacity', op);
   };
+  function fixSize(){
+    var currentWidth = $(window).width();
+    var wh = $(window).height();
+    var isM = mobileCheck();
+    for( var i = 0; i < sectionLength; i++){
+      var currentDiv = $(sections[i]);
+      var currentSec = $(currentDiv).data('magic');
+      // if(currentWidth > 1024){
+        if(  currentSec == 'image' ){
+            if(i==0){
+              currentDiv.height(wh+100);
+              if(currentWidth > 1280 || !isM){
+                $('header').css('bottom', -wh);
+              }
+            }else{
+              // console.log('moble: ',wh);
+              if(currentWidth > 1280 || !isM){
+                currentDiv.css('bottom', -wh);
+              }
+            };
 
-  var windowH = $(window).height();
+        }else if( currentSec == 'na' ){
+          if(currentWidth > 1280 || !isM){
+            currentDiv.css('bottom', -wh);
+          }
+
+        };
+      // }
+      // else{
+        // $('#myTheme-home').height(wh);
+      // }
+    }
+    // console.log('working');
+  }
   var header = $('header'), tempHeader = $('.my-nav-temp');
 
   var home = $('#myTheme-home').position().top + $('#myTheme-home').height(),
@@ -90,11 +103,31 @@ jQuery(function($){
       cb = document.getElementById('blank-6'),
       s = 10;
 
+  button.on('click', function(e){
+    if($(e.currentTarget).is('#freelance')){
+      var thisHash = '#myTheme-contact-hidden';
+      pageScroll(e,thisHash);
+
+    }else{
+      if( (ww < 1281) && $(e.currentTarget.hash).is('#myTheme-contact')){ 
+        var thisHash = '#myTheme-contact-hidden';
+        pageScroll(e,thisHash);
+        }
+      else{
+        var thisHash = this.hash;
+        pageScroll(e,thisHash);
+      }
+    }
+  });
+
   window.onscroll = function(){
     var yOffset = window.pageYOffset;
-    if(ww > 1024){
+    var windW = $(window).width();
+
+    if (windW > 1280 || !mobile){
+      // console.log(windW, mobile);
       var homePosition = -(yOffset / 10),
-          prjBlankPos = -(yOffset/6) + 500,
+          prjBlankPos = -(yOffset/6) + 800,
           contBlankPos = -(yOffset/6) + 700,
           heroPos = -(yOffset/5);
 
@@ -118,6 +151,8 @@ jQuery(function($){
 
      }
     }else{
+      // console.log('true');
+
       if(yOffset > about ){
 
         $('#myTheme-home').addClass('change-z');
@@ -129,7 +164,8 @@ jQuery(function($){
    };
 
   
-  }
+  };
+
   $(window).scroll(function(){
     var yOffset = $(window).scrollTop();
 
@@ -166,5 +202,9 @@ jQuery(function($){
       $(navBtns[3]).addClass('active-nav');
     }
   })
+
+  $(window).on('resize', function(){
+    fixSize();
+  });
 
 });

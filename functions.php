@@ -21,25 +21,7 @@ function myTheme_setup(){
 
 }
 add_action( 'after_setup_theme', 'myTheme_setup' );
-/**
- * Register Lato Google font 
- *
- * @since myTheme
- *
- * @return string
- */
-// function myTheme_font_url() {
-// 	$font_url = '';
-// 	/*
-// 	 * Translators: If there are characters in your language that are not supported
-// 	 * by Lato, translate this to 'off'. Do not translate into your own language.
-// 	 */
-// 	if ( 'off' !== _x( 'on', 'Lato font: on or off', 'myTheme' ) ) {
-// 		$font_url = add_query_arg( 'family', urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ), "//fonts.googleapis.com/css" );
-// 	}
 
-// 	return $font_url;
-// }
 
 /**
  * Enqueue scripts and styles for the front end.
@@ -49,22 +31,19 @@ add_action( 'after_setup_theme', 'myTheme_setup' );
  * @return void
  */
 function myTheme_scripts() {
-	// Add Lato font, used in the main stylesheet.
-	// wp_enqueue_style( 'myTheme-lato', myTheme_font_url(), array(), null );
-
 	// Load main stylesheet.
 	wp_enqueue_style( 'myTheme-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
-	wp_enqueue_style( 'myTheme-proj-style', get_template_directory_uri() . '/css/proj_styles.css');
+	// wp_enqueue_style( 'myTheme-proj-style', get_template_directory_uri() . '/css/proj_styles.css');
 	wp_enqueue_style( 'myTheme-style', get_stylesheet_uri());
 
-	wp_enqueue_style( 'myTheme-fonts', '//fonts.googleapis.com/css?family=Raleway|Open+Sans|Ubuntu|Ubuntu+Condensed|Oswald' );
-
-	wp_enqueue_style( 'myTheme-exp-fonts', '//fonts.googleapis.com/css?family=Exo|Poiret+One|Denk+One|Voltaire|Federo|Righteous|Snippet|Cabin' );
+	wp_enqueue_style( 'myTheme-fonts', '//fonts.googleapis.com/css?family=Federo|Open+Sans|Righteous|Ubuntu|Ubuntu+Condensed' );
 
 
-	wp_enqueue_script( 'myTheme-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20131209', true );
-	wp_enqueue_script( 'myTheme-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery', 'jquery-ui-core', 'jquery-effects-bounce' ), '20131209', true );
+
+	wp_enqueue_script( 'myTheme-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'myTheme-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), true );
 }
+
 add_action( 'wp_enqueue_scripts', 'myTheme_scripts' );
 
 function myTheme_get_pages(){

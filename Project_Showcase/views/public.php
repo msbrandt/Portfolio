@@ -33,10 +33,15 @@ function display_project_show_case(){
 					?>
 					<li>
 						<div class="col-md-5 proj-decp">
-							<h1><?php echo $project_title; ?></h1>
-							<a href="http://<?php echo $project_url; ?>" target="_blank">View Page</a>
-							<span class="project-contrubute"><?php echo $project_work; ?></span>
-							<p><?php echo $project_decp; ?></p>
+							<ul>
+								<li><h1><?php echo $project_title; ?></h1></li>
+								<li><a href="http://<?php echo $project_url; ?>" target="_blank">Vist Page</a></li>
+								<li><span class="project-contrubute"><?php echo $project_work; ?></span></li>
+								<li><p><?php echo $project_decp; ?></p></li>
+								<li data-toggle="modal" data-target="#proj-<?php echo $proj_count; ?>" class="mobile_tog" id="p-<?php echo $proj_count; ?>">View Images</li>
+								
+
+							</ul>
 						</div>
 						<div class="col-md-7" >
 							<div class="proj-img" data-toggle="modal" data-target="#proj-<?php echo $proj_count; ?>" style="background-image: url('<?php echo $project_img; ?>')"></div>
@@ -49,8 +54,7 @@ function display_project_show_case(){
 											 <h4 class="modal-title" id="myModalLabel"><?php echo $project_title; ?></h4>
 										</div>
 										<div class="modal-body">
-											<div class="modal-image" style="background-image:url('<?php echo $project_img; ?>')"
-											<img src="<?php echo $project_img; ?>">
+											<div class="modal-image" style="background-image:url('<?php echo $project_img; ?>')"></div>
 										</div>
 									</div>
 								</div>
@@ -63,8 +67,9 @@ function display_project_show_case(){
 				}else{
 					?>
 					<li>
-						<div class="col-md-7">
+						<div class="col-md-7" >
 							<div class="proj-img" data-toggle="modal" data-target="#proj-<?php echo $proj_count; ?>" style="background-image: url('<?php echo $project_img; ?>')"></div>
+
 							<div class="modal fade" id="proj-<?php echo $proj_count; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $project_title; ?>" aria-hidden="false">
 								<div class="modal-dialog modal-lg">
 									<div class="modal-content">
@@ -73,18 +78,20 @@ function display_project_show_case(){
 											 <h4 class="modal-title" id="myModalLabel"><?php echo $project_title; ?></h4>
 										</div>
 										<div class="modal-body">
-											<div class="modal-image" style="background-image:url('<?php echo $project_img; ?>')"
-											IMAGE GOES HERE!!!
+											<div class="modal-image" style="background-image:url('<?php echo $project_img; ?>')"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-5 proj-decp">
-							<h1><?php echo $project_title; ?></h1>
-							<a href="http://<?php echo $project_url; ?>" target="_blank">View Page</a>
-							<span class="project-contrubute"><?php echo $project_work; ?></span>
-							<p><?php echo $project_decp; ?></p>
+							<ul>
+								<li><h1><?php echo $project_title; ?></h1></li>
+								<li><a href="http://<?php echo $project_url; ?>" target="_blank">Vist Page</a></li>
+								<li><span class="project-contrubute"><?php echo $project_work; ?></span></li>
+								<li><p><?php echo $project_decp; ?></p></li>
+								<li data-toggle="modal" data-target="#proj-<?php echo $proj_count; ?>" class="mobile_tog" id="p-<?php echo $proj_count; ?>">View Images</li>
+							</ul>
 						</div>
 
 					</li>
