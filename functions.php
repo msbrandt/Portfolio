@@ -115,4 +115,89 @@ function myTheme_header(){
 
 	<?php
 }
+function project_link_metabox(){
+
+	add_meta_box('project-metabox', 'Link to Page', 'project_link_metabox_form');
+
+}
+add_action('add_meta_boxes', 'project_link_metabox');
+
+function project_link_metabox_form( $project ){
+	// var_dump( $project );
+	wp_nonce_field( basename(__FILE__), 'proj_nonce');
+	$proj_stored_meta = get_post_meta( $project->ID );
+	// var_dump( $proj_stored_meta );
+	?>
+	<p>
+        <label for="prj-meta-text" class="project-row-title">Add Website link</label>
+        <input type="text" name="prj-meta-text" id="proj-prj-meta-text" value="<?php if ( isset ( $proj_stored_meta['prj-meta-text'] ) ) echo $proj_stored_meta['prj-meta-text'][0]; ?>" />
+    </p>
+	<?php
+}
+
+function project_save_meta($project_id){
+    $is_autosave = wp_is_post_autosave( $project_id );
+    $is_revision = wp_is_post_revision( $project_id );
+    $is_valid_nonce = ( isset( $_POST[ 'proj_nonce' ] ) && wp_verify_nonce( $_POST[ 'proj_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+ 	// echo $is_valid_nonce;
+    // Exits script depending on save status
+    if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
+        return;
+    }
+ 
+    // Checks for input and sanitizes/saves if needed
+    if( isset( $_POST[ 'prj-meta-text' ] ) ) {
+    // 	echo $_POST[ 'prj-meta-text' ];
+        update_post_meta( $project_id, 'prj-meta-text', sanitize_text_field( $_POST[ 'prj-meta-text' ] ) );
+    // }else{
+    // 	echo '<h1>No post meta!</h1>';
+    }
+}
+add_action( 'save_post', 'project_save_meta' );
+
+function projects_post_type() {
+	register_post_type( 'projects',
+		array(
+			'menu_icon' => 'dashicons-portfolio',
+			'menu_position' => 5,
+			'capability_type' => 'post',
+			'taxonomies' => array('category'),
+			'supports' => array(
+				'thumbnail',
+				'title',
+				'editor',
+				'page-attributes',
+				'excerpt'
+			),
+
+			'labels' => array(
+					'name' => __( 'Project Showcase' ),
+					'singular_name' => __( 'project' ),
+					'add_new' => __( 'Add New' ),
+					'add_new_item' => __( 'Add New Project' ),
+					'edit' => __( 'Edit' ),
+					'edit_item' => __( 'Edit Project' ),
+					'new_item' => __( 'New Project' ),
+					'view' => __( 'View Project' ),
+					'view_item' => __( 'View Project' ),
+					'search_items' => __( 'Search Project' ),
+					'not_found' => __( 'No Project found' ),
+					'not_found_in_trash' => __( 'No Project found in Trash' ),
+					'parent' => __( 'Parent Project' ),
+				),
+			'public' => true,
+			'has_archive' => true,
+		)
+	);
+}
+add_action( 'init', 'projects_post_type' );
+
+
+
+
+
+
+
+
+
 ?>

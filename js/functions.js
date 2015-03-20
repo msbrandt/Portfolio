@@ -105,17 +105,20 @@ jQuery(function($){
 
   button.on('click', function(e){
     if($(e.currentTarget).is('#freelance')){
-      var thisHash = '#myTheme-contact-hidden';
+      var thisHash = '#myTheme-contact';
       pageScroll(e,thisHash);
+        console.log(thisHash);
 
     }else{
       if( (ww < 1281) && $(e.currentTarget.hash).is('#myTheme-contact')){ 
-        var thisHash = '#myTheme-contact-hidden';
+        var thisHash = '#myTheme-contact';
         pageScroll(e,thisHash);
+        console.log(thisHash);
         }
       else{
         var thisHash = this.hash;
         pageScroll(e,thisHash);
+        console.log(thisHash);
       }
     }
   });

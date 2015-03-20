@@ -90,9 +90,12 @@
 		<h3 class="heading">TECHNICAL SKILLS</h3>
 		<ul id="tech-skills">
 			<li>PHP, JavaScript, jQuery, HTML5, CSS3</li>
+			<li>Process modeling</li>
 			<li>Responsive design</li>
 			<li>Wordpress / CMS</li>
 			<li>git hub / Version Control</li>
+			<li>Ubuntu</li>
+			<li>Project Management</li>
 			<li>z/OS, JCL, RDz, for COBOL</li>
 			<li>Knowledgeable in Microsoft Office and Adobe Creative Suite</li>
 		</ul>

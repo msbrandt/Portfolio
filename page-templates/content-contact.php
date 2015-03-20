@@ -21,7 +21,12 @@ $this_query = new WP_Query( $argsX );
 			$this_query->the_post();
 		?>
 		<h1>Contact for more infromation <br /> or freelance work!</h1>
-
+		<div id="linkedin">
+			<a target="_blank" href="http://www.linkedin.com/in/msbrandt">
+				<div id="linkedin-img"></div>
+				<span>Connect to linkedin</span>
+			</a>
+		</div>
 		<div class="col-md-12">
 		<!-- <h1><?php the_title(); ?></h1> -->
 			<?php the_content(); ?>
